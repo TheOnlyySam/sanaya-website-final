@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "./components/Navbar";
 import Landing from "./components/Landing";
+import AboutUs from "./components/About"; // Import the AboutUs component
 
 function App() {
   return (
@@ -9,8 +10,8 @@ function App() {
       <div id="landing">
         <Landing />
       </div>
-      <div id="about" className="h-screen bg-gray-200">
-        About Section
+      <div id="about" className="bg-gray-200">
+        <AboutUs />
       </div>
       <div id="services" className="h-screen bg-gray-300">
         Services Section
