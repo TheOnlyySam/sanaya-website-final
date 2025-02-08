@@ -6,6 +6,7 @@ import Services from "./components/Services";
 import AOS from "aos";
 import "aos/dist/aos.css"; // Import AOS styles
 import MissionVision from "./components/MissionVision";
+import Partners from "./components/Partners";
 
 function App() {
   useEffect(() => {
@@ -27,8 +28,13 @@ function App() {
       {/* About Us Section */}
       <div id="about" className="py-16 bg-gray-100">
         <AboutUs />
+
         <div id="missionvision">
           <MissionVision />
+        </div>
+        {/* Our Partners Sectioon */}
+        <div id="partners">
+          <Partners />
         </div>
       </div>
       {/* Services Section */}
