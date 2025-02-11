@@ -1,110 +1,74 @@
-import React, { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import React, { useState } from "react";
 
 const Contact = () => {
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      easing: "ease-in-out",
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const [status, setStatus] = useState("");
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("Sending...");
+
+    const response = await fetch("http://localhost:5000/send-email", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
     });
-  }, []);
+
+    const result = await response.json();
+    setStatus(
+      result.success ? "Email sent successfully!" : "Error sending email"
+    );
+  };
 
   return (
-    <section className="bg-gray-100 py-16 px-6 lg:px-24" id="contact">
-      <div className="container mx-auto">
-        {/* Heading */}
-        <h2
-          className="text-4xl font-bold text-gray-800 text-center mb-6"
-          data-aos="fade-up">
-          Contact Us
-        </h2>
-        <p
-          className="text-lg text-gray-600 text-center mb-12"
-          data-aos="fade-up"
-          data-aos-delay="200">
-          Have a question or want to work with us? Fill out the form below.
-        </p>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Left: Contact Form */}
-          <div
-            className="bg-white p-8 shadow-lg rounded-lg"
-            data-aos="fade-right">
-            <h3 className="text-2xl font-semibold text-gray-800 mb-4">
-              Get in Touch
-            </h3>
-            <form className="space-y-4">
-              <div>
-                <label className="block text-gray-700 font-medium mb-1">
-                  Your Name
-                </label>
-                <input
-                  type="text"
-                  placeholder="Enter your name"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block text-gray-700 font-medium mb-1">
-                  Your Email
-                </label>
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block text-gray-700 font-medium mb-1">
-                  Message
-                </label>
-                <textarea
-                  rows="4"
-                  placeholder="Write your message here..."
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
-                  required
-                />
-              </div>
-              <button
-                type="submit"
-                className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-all">
-                Send Message
-              </button>
-            </form>
-          </div>
-
-          {/* Right: Contact Details */}
-          <div className="space-y-6" data-aos="fade-left">
-            <div className="bg-white p-6 shadow-lg rounded-lg flex items-center">
-              <span className="text-blue-500 text-3xl mr-4">📍</span>
-              <div>
-                <h4 className="text-xl font-semibold text-gray-800">
-                  Our Address
-                </h4>
-                <p className="text-gray-600">Baghdad, Iraq</p>
-              </div>
-            </div>
-            <div className="bg-white p-6 shadow-lg rounded-lg flex items-center">
-              <span className="text-blue-500 text-3xl mr-4">📞</span>
-              <div>
-                <h4 className="text-xl font-semibold text-gray-800">Phone</h4>
-                <p className="text-gray-600">+964 777 799 5015</p>
-              </div>
-            </div>
-            <div className="bg-white p-6 shadow-lg rounded-lg flex items-center">
-              <span className="text-blue-500 text-3xl mr-4">✉️</span>
-              <div>
-                <h4 className="text-xl font-semibold text-gray-800">Email</h4>
-                <p className="text-gray-600">info@sanayatechs.iq</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <div className="container mx-auto py-16 px-6">
+      <h2 className="text-4xl font-bold text-gray-800 mb-6 text-center">
+        Contact Us
+      </h2>
+      <form
+        onSubmit={handleSubmit}
+        className="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-md">
+        <input
+          type="text"
+          name="name"
+          placeholder="Your Name"
+          className="w-full p-3 border border-gray-300 rounded mb-4"
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="Your Email"
+          className="w-full p-3 border border-gray-300 rounded mb-4"
+          onChange={handleChange}
+          required
+        />
+        <textarea
+          name="message"
+          placeholder="Your Message"
+          className="w-full p-3 border border-gray-300 rounded mb-4"
+          rows="5"
+          onChange={handleChange}
+          required
+        />
+        <button
+          type="submit"
+          className="w-full bg-blue-500 text-white p-3 rounded">
+          Send Message
+        </button>
+        <p className="text-center mt-4">{status}</p>
+      </form>
+    </div>
   );
 };
 
