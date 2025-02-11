@@ -2,11 +2,11 @@ import React from "react";
 
 const Partners = () => {
   const partners = [
-    { name: "Partner 1", logo: "partner1.png" },
-    { name: "Partner 2", logo: "partner2.png" },
-    { name: "Partner 3", logo: "partner3.png" },
-    { name: "Partner 4", logo: "partner4.png" },
-    { name: "Partner 5", logo: "partner5.png" },
+    { name: "Partner 1", logo: "h.png" },
+    { name: "Partner 2", logo: "h.png" },
+    { name: "Partner 3", logo: "h.png" },
+    { name: "Partner 4", logo: "h.png" },
+    { name: "Partner 5", logo: "h.png" },
   ];
 
   return (

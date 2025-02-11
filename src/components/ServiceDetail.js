@@ -46,6 +46,9 @@ const serviceDetails = {
           "Sync online stores with inventory, sales, and marketing tools.",
         icon: "🛒",
       },
+      {
+        title: "Help desk",
+      },
     ],
   },
   "networking-security-solutions": {
