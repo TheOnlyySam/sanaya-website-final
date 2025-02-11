@@ -48,6 +48,8 @@ const serviceDetails = {
       },
       {
         title: "Help desk",
+        description: "Manage all your tickets from one place",
+        icon: "🛒",
       },
     ],
   },
