@@ -50,8 +50,8 @@ const partnersData = [
       { name: "Partner Q", logo: "/partners/forcepoint.png", link: "#" },
       { name: "Partner R", logo: "/partners/Forinet.png", link: "#" },
       { name: "Partner S", logo: "/partners/kasper.png", link: "#" },
-      { name: "Partner T", logo: "/partners/OIP.jpeg", link: "#" },
-      { name: "Partner U", logo: "/partners/Unifi.jpeg", link: "#" },
+      { name: "Partner T", logo: "/partners/dlink.png", link: "#" },
+      { name: "Partner U", logo: "/partners/Unifi.png", link: "#" },
     ],
   },
 ];
@@ -148,8 +148,8 @@ const Partners = () => {
           {/* Logos Row */}
           <div
             key={activeTab}
-            className="flex flex-nowrap justify-start sm:justify-center items-center 
-  gap-8 no-scrollbar fade-in-up mt-8 overflow-x-auto sm:overflow-visible"
+            className="container flex flex-nowrap justify-start sm:justify-center items-center 
+  gap-8  fade-in-up mt-8 overflow-x-auto overflow-hidden"
             data-aos="fade-up">
             {partnersData[activeTab].partners.map((partner, index) => (
               <a

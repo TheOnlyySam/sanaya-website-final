@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -56,6 +57,7 @@ const serviceDetails = {
 };
 
 const ServiceDetail = () => {
+  const navigate = useNavigate();
   const { serviceId } = useParams();
   const service = serviceDetails[serviceId];
 
@@ -141,8 +143,10 @@ const ServiceDetail = () => {
         <p className="text-lg mb-6" data-aos="fade-up" data-aos-delay="200">
           Transform your business operations today with {service.title}.
         </p>
+
         <button
-          className="bg-white text-blue-600 font-semibold py-3 px-8 rounded-full shadow-lg transition-all duration-300 hover:bg-gray-200"
+          onClick={() => navigate("/", { state: { scrollTo: "Contact" } })}
+          className="bg-white text-blue-600 font-semibold py-3 px-8 rounded-full shadow-lg transition-all duration-300 hover:bg-gray-200 pointer-events-auto"
           data-aos="zoom-in">
           Contact Us
         </button>
