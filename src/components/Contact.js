@@ -137,7 +137,7 @@ const Contact = () => {
             <div className="bg-white p-6 rounded-lg shadow-lg flex items-center space-x-4">
               <FaPhone className="text-blue-500 text-3xl" />
               <div>
-                <h4 className="text-lg font-semibold text-gray-800">Phone</h4>
+                <h4 className="text-xl font-semibold text-gray-800">Phone</h4>
                 <p className="text-gray-600">+964 777 799 5015</p>
               </div>
             </div>
@@ -145,22 +145,9 @@ const Contact = () => {
             <div className="bg-white p-6 rounded-lg shadow-lg flex items-center space-x-4">
               <FaMapMarkerAlt className="text-blue-500 text-3xl" />
               <div>
-                <h4 className="text-lg font-semibold text-gray-800">Address</h4>
-                <p className="text-gray-600">
-                  Sinaa'a Street, near Al-Khasiky Sweets, Almasar Building, 6th
-                  Floor, Baghdad, Iraq
-                </p>
+                <h4 className="text-xl font-semibold text-gray-800">Email</h4>
+                <p className="text-gray-600">info@sanayatechs.iq</p>
               </div>
-            </div>
-
-            {/* Google Map Embed */}
-            <div className="rounded-lg overflow-hidden shadow-lg">
-              <iframe
-                title="Sanaya Location"
-                className="w-full h-64 rounded-lg"
-                src="https://maps.google.com/maps?q=33.30806621622016,44.44865317989087&hl=es;z=14&output=embed" // Use actual coordinates for precision
-                allowFullScreen
-                loading="lazy"></iframe>
             </div>
           </div>
         </div>
