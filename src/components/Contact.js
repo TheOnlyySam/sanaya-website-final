@@ -123,17 +123,18 @@ const Contact = () => {
             </form>
           </div>
 
-          {/* Contact Information */}
+          {/* Contact Information & Map */}
           <div className="space-y-8" data-aos="fade-left">
-            {/* Contact Details */}
+            {/* Email */}
             <div className="bg-white p-6 rounded-lg shadow-lg flex items-center space-x-4">
               <FaEnvelope className="text-blue-500 text-3xl" />
               <div>
-                <h4 className="text-lg font-semibold text-gray-800">Email</h4>
+                <h4 className="text-xl font-semibold text-gray-800">Email</h4>
                 <p className="text-gray-600">info@sanayatechs.iq</p>
               </div>
             </div>
 
+            {/* Phone */}
             <div className="bg-white p-6 rounded-lg shadow-lg flex items-center space-x-4">
               <FaPhone className="text-blue-500 text-3xl" />
               <div>
@@ -142,12 +143,25 @@ const Contact = () => {
               </div>
             </div>
 
+            {/* Address */}
             <div className="bg-white p-6 rounded-lg shadow-lg flex items-center space-x-4">
               <FaMapMarkerAlt className="text-blue-500 text-3xl" />
               <div>
-                <h4 className="text-xl font-semibold text-gray-800">Email</h4>
-                <p className="text-gray-600">info@sanayatechs.iq</p>
+                <h4 className="text-xl font-semibold text-gray-800">Address</h4>
+                <p className="text-gray-600">
+                  Coordinates: 33.308066, 44.448653
+                </p>
               </div>
+            </div>
+
+            {/* Embedded Map */}
+            <div className="w-full h-64 rounded-lg shadow-lg overflow-hidden">
+              <iframe
+                title="Location Map"
+                className="w-full h-full"
+                src="https://maps.google.com/maps?q=33.30806621622016,44.44865317989087&z=15&output=embed"
+                allowFullScreen
+                loading="lazy"></iframe>
             </div>
           </div>
         </div>
