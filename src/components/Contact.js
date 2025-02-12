@@ -149,7 +149,7 @@ const Contact = () => {
               <div>
                 <h4 className="text-xl font-semibold text-gray-800">Address</h4>
                 <p className="text-gray-600">
-                  Coordinates: 33.308066, 44.448653
+                  6th Floor, Al-Masar Building, Sinaa'a Street, Baghdad, Iraq
                 </p>
               </div>
             </div>

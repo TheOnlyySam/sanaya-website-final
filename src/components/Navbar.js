@@ -5,7 +5,6 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
-  // Set up scroll listener once on mount.
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
@@ -14,34 +13,19 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Helper to scroll to a section and close the mobile menu.
-  const scrollToSection = (sectionId) => {
-    const section = document.getElementById(sectionId);
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
     if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
+      const offset = 50;
+      const sectionPosition =
+        section.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top: sectionPosition, behavior: "smooth" });
       setIsOpen(false);
     }
   };
 
   return (
     <>
-      {/* Custom CSS for mobile menu slide-down animation */}
-      <style>{`
-        @keyframes slideDown {
-          from {
-            transform: translateY(-10%);
-            opacity: 0;
-          }
-          to {
-            transform: translateY(0);
-            opacity: 1;
-          }
-        }
-        .animate-slideDown {
-          animation: slideDown 0.3s ease-out;
-        }
-      `}</style>
-
       <nav
         className={`fixed top-0 w-full z-50 transition-colors duration-75 ease-out ${
           scrolled || isOpen
@@ -49,7 +33,7 @@ const Navbar = () => {
             : "bg-transparent text-white"
         }`}>
         <div className="container mx-auto flex justify-between items-center px-4 md:px-6 lg:px-8 py-3">
-          {/* Logo Section */}
+          {/* Logo */}
           <div className="flex items-center space-x-3">
             <img
               src={scrolled || isOpen ? "logo2.png" : "logo1.png"}
@@ -59,17 +43,12 @@ const Navbar = () => {
             />
           </div>
 
-          {/* Desktop Navigation Links (visible on lg and up) */}
-          <ul className="hidden lg:flex space-x-16 text-base lg:text-lg font-medium">
+          {/* Desktop Navigation */}
+          <ul className="hidden lg:flex space-x-10 text-base lg:text-lg font-medium items-center">
             <li
               className="cursor-pointer hover:text-blue-500 transition-colors duration-75"
               onClick={() => scrollToSection("about")}>
               About Us
-            </li>
-            <li
-              className="cursor-pointer hover:text-blue-500 transition-colors duration-75"
-              onClick={() => scrollToSection("services")}>
-              Services
             </li>
             <li
               className="cursor-pointer hover:text-blue-500 transition-colors duration-75"
@@ -78,25 +57,38 @@ const Navbar = () => {
             </li>
             <li
               className="cursor-pointer hover:text-blue-500 transition-colors duration-75"
-              onClick={() => scrollToSection("consulting")}>
+              onClick={() => scrollToSection("services")}>
+              Services
+            </li>
+            <li
+              className="cursor-pointer hover:text-blue-500 transition-colors duration-75"
+              onClick={() => scrollToSection("ConsultingServices")}>
               Consulting Services & Solutions
+            </li>
+            <li
+              className="cursor-pointer hover:text-blue-500 transition-colors duration-75"
+              onClick={() => scrollToSection("contact")}>
+              Contact Us
             </li>
           </ul>
 
-          {/* Desktop Contact Button (visible on lg and up) */}
-          <div className="hidden lg:flex items-center">
-            <button
-              onClick={() => scrollToSection("contact")}
-              className={`px-4 py-2 rounded-full shadow-md transition-colors duration-75 ease-out ${
-                scrolled || isOpen
-                  ? "bg-blue-500 text-white hover:bg-blue-600"
-                  : "bg-gradient-to-r from-blue-500 to-teal-500 text-white hover:from-teal-500 hover:to-blue-600"
-              }`}>
-              Contact Us
-            </button>
+          {/* Buttons Section */}
+          <div className="hidden lg:flex space-x-4">
+            <a
+              href="/Sanaya Company Profile Digital.pdf"
+              download
+              className="px-5 py-2 rounded-lg shadow-md transition-all duration-300 bg-blue-500 text-white hover:bg-blue-600 flex items-center">
+              Download Company Profile
+            </a>
+            <a
+              href="/reference_list.pdf"
+              download
+              className="px-5 py-2 rounded-lg shadow-md transition-all duration-300 bg-green-500 text-white hover:bg-green-600 flex items-center">
+              Download References List
+            </a>
           </div>
 
-          {/* Mobile Menu Toggle Button (visible below lg) */}
+          {/* Mobile Menu Toggle */}
           <div className="lg:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -108,8 +100,8 @@ const Navbar = () => {
 
         {/* Mobile Navigation Menu */}
         {isOpen && (
-          <div className="lg:hidden bg-white text-gray-900 shadow-md animate-slideDown">
-            <ul className="flex flex-col space-y-4 px-4 py-4 text-base">
+          <div className="lg:hidden bg-white text-gray-900 shadow-md animate-slideDown p-4">
+            <ul className="flex flex-col space-y-4 text-lg font-medium text-center">
               <li
                 className="cursor-pointer hover:text-blue-500 transition-colors duration-75"
                 onClick={() => scrollToSection("about")}>
@@ -130,12 +122,26 @@ const Navbar = () => {
                 onClick={() => scrollToSection("consulting")}>
                 Consulting Services & Solutions
               </li>
+              <li
+                className="cursor-pointer hover:text-blue-500 transition-colors duration-75"
+                onClick={() => scrollToSection("contact")}>
+                Contact Us
+              </li>
+              <li className="mt-4">
+                <a
+                  href="/company_profile.pdf"
+                  download
+                  className="block w-full text-center px-4 py-2 rounded-lg transition-all duration-300 bg-blue-500 text-white hover:bg-blue-600">
+                  Download Profile
+                </a>
+              </li>
               <li>
-                <button
-                  onClick={() => scrollToSection("contact")}
-                  className="w-full text-left px-4 py-2 rounded-full transition-colors duration-75 ease-out shadow-md bg-blue-500 text-white hover:bg-blue-600">
-                  Contact Us
-                </button>
+                <a
+                  href="/reference_list.pdf"
+                  download
+                  className="block w-full text-center px-4 py-2 rounded-lg transition-all duration-300 bg-green-500 text-white hover:bg-green-600">
+                  Download References
+                </a>
               </li>
             </ul>
           </div>

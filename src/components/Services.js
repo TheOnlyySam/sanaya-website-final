@@ -51,31 +51,6 @@ const supportServices = [
   // Add more services similarly...
 ];
 
-const consultingServices = [
-  {
-    title: "Networking & Security Solutions",
-    description:
-      "Through our Networking and security vendors, we provide wide range of products and services by delivering turnkey solutions, allowing the combination of many platforms’ connectivity services to wide range of clients and organizations.",
-    image: "security.webp",
-    link: "/services/networking-security-solutions",
-  },
-  {
-    title: "Structured Cabling",
-    description:
-      "Sanaya Passive team can deliver, design and install the structured cabling for a building, campus and telecommunication cabling infrastructure.",
-    image: "cable.jpg",
-    link: "/services/structured-cabling",
-  },
-  {
-    title: "IP Telephony and Video Conferencing Systems",
-    description:
-      "Through our leading vendors in IP telephony and video conferencing systems, Sanaya can provide the video conferencing room that meet all business needs from small to enterprise to give our clients flexibility and easy to use and manage their online meetings through user friendly systems in different locations across Iraq by secure connections.",
-    image: "telephony.png",
-    link: "/services/ip-telephony",
-  },
-  // Add more services similarly...
-];
-
 const Services = () => {
   const renderServiceCards = (services) => {
     return services.map((service, index) => (
@@ -139,17 +114,6 @@ const Services = () => {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {renderServiceCards(supportServices)}
-          </div>
-        </div>
-
-        <div>
-          <h2
-            className="text-4xl font-bold text-gray-800 mb-6"
-            data-aos="fade-up">
-            Consulting Services & Solutions
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {renderServiceCards(consultingServices)}
           </div>
         </div>
       </div>

@@ -11,6 +11,7 @@ import Contact from "./components/Contact";
 import ScrollToTop from "./components/ScrollToTop"; // Import ScrollToTop component
 import AOS from "aos";
 import "aos/dist/aos.css";
+import ConsultingServices from "./components/ConsultingServices";
 
 function App() {
   useEffect(() => {
@@ -43,6 +44,10 @@ function App() {
               {/* About Us & Mission Vision */}
               <div id="about" className="py-16 bg-gray-100">
                 <AboutUs />
+                {/* Partners Section */}
+                <div id="partners">
+                  <Partners />
+                </div>
                 <MissionVision />
               </div>
 
@@ -50,10 +55,8 @@ function App() {
               <div id="services" className="bg-gray-100">
                 <Services />
               </div>
-
-              {/* Partners Section */}
-              <div id="partners">
-                <Partners />
+              <div id="ConsultingServices" className="bg-gray-100">
+                <ConsultingServices />
               </div>
 
               {/* Contact Section */}
