@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom"; // Import navigation hooks
 import { FaBars, FaTimes } from "react-icons/fa";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,14 +17,31 @@ const Navbar = () => {
   }, []);
 
   const scrollToSection = (id) => {
-    const section = document.getElementById(id);
-    if (section) {
-      const offset = 50;
-      const sectionPosition =
-        section.getBoundingClientRect().top + window.scrollY - offset;
-      window.scrollTo({ top: sectionPosition, behavior: "smooth" });
-      setIsOpen(false);
+    if (location.pathname !== "/") {
+      // If not on the homepage, navigate to home first
+      navigate("/", { replace: true });
+
+      // Ensure homepage loads first before scrolling
+      setTimeout(() => {
+        const section = document.getElementById(id);
+        if (section) {
+          const offset = 50;
+          const sectionPosition =
+            section.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top: sectionPosition, behavior: "smooth" });
+        }
+      }, 300);
+    } else {
+      // If already on the homepage, scroll instantly
+      const section = document.getElementById(id);
+      if (section) {
+        const offset = 50;
+        const sectionPosition =
+          section.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top: sectionPosition, behavior: "smooth" });
+      }
     }
+    setIsOpen(false);
   };
 
   return (
