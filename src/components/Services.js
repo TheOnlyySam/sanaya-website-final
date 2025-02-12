@@ -96,10 +96,10 @@ const Services = () => {
           <p className="text-gray-600 mb-4">{service.description}</p>
           <Link
             to={service.link}
-            className="text-blue-500 hover:underline flex items-center">
+            className="inline-block bg-blue-500 text-white rounded-full py-2 px-6 font-semibold shadow hover:bg-blue-600 transition-colors duration-300">
             Read More
             <svg
-              className="ml-1 w-5 h-5"
+              className="ml-2 w-5 h-5 inline"
               fill="none"
               stroke="currentColor"
               strokeWidth="2"

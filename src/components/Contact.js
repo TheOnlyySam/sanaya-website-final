@@ -138,7 +138,7 @@ const Contact = () => {
               <FaPhone className="text-blue-500 text-3xl" />
               <div>
                 <h4 className="text-lg font-semibold text-gray-800">Phone</h4>
-                <p className="text-gray-600">+964 770 123 4567</p>
+                <p className="text-gray-600">+964 777 799 5015</p>
               </div>
             </div>
 
@@ -146,7 +146,10 @@ const Contact = () => {
               <FaMapMarkerAlt className="text-blue-500 text-3xl" />
               <div>
                 <h4 className="text-lg font-semibold text-gray-800">Address</h4>
-                <p className="text-gray-600">Baghdad, Iraq</p>
+                <p className="text-gray-600">
+                  Sinaa'a Street, near Al-Khasiky Sweets, Almasar Building, 6th
+                  Floor, Baghdad, Iraq
+                </p>
               </div>
             </div>
 
@@ -155,7 +158,7 @@ const Contact = () => {
               <iframe
                 title="Sanaya Location"
                 className="w-full h-64 rounded-lg"
-                src="https://maps.google.com/maps?q=33.3152,44.3661&hl=es;z=14&output=embed" // Use actual coordinates for precision
+                src="https://maps.google.com/maps?q=33.30806621622016,44.44865317989087&hl=es;z=14&output=embed" // Use actual coordinates for precision
                 allowFullScreen
                 loading="lazy"></iframe>
             </div>

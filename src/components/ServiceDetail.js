@@ -8,7 +8,7 @@ const serviceDetails = {
     title: "Odoo ERP System",
     description:
       "Odoo ERP System is an all-in-one management software that provides a range of business applications including CRM, eCommerce, accounting, inventory, and project management. It enables businesses to streamline operations, improve efficiency, and drive innovation.",
-    image: "/assets/odoo-banner.jpg", // Replace with actual banner image
+    image: "/assets/odoo-banner.jpg",
     features: [
       {
         title: "Integrated CRM & Sales",
@@ -46,73 +46,12 @@ const serviceDetails = {
           "Sync online stores with inventory, sales, and marketing tools.",
         icon: "🛒",
       },
-      {
-        title: "Help desk",
-        description: "Manage all your tickets from one place",
-        icon: "🛒",
-      },
     ],
-  },
-  "networking-security-solutions": {
-    title: "Networking & Security Solutions",
-    description:
-      "We provide a wide range of networking and security products and services, including deployment, maintenance, and support to keep your IT environment secure and reliable.",
-    image: "/assets/network-security.jpg",
-    features: [
-      {
-        title: "Network Design & Implementation",
-        description:
-          "End-to-end network solutions tailored to your business needs.",
-        icon: "🌐",
-      },
-      {
-        title: "Cybersecurity Protection",
-        description:
-          "Comprehensive security measures to protect your data and systems.",
-        icon: "🔒",
-      },
-      {
-        title: "24/7 Monitoring & Support",
-        description: "Round-the-clock IT security management and assistance.",
-        icon: "📡",
-      },
-    ],
-  },
-  "cctv-solutions": {
-    title: "CCTV Solutions",
-    description:
-      "We offer state-of-the-art CCTV Surveillance systems to enhance security and monitoring",
-    image: "/assets/cctv-banner.jpg",
-
-    features: [
-      {
-        title: "High-Resolution Cameras",
-        description:
-          "Delivering crystal-clear images for enhanced security monitoring",
-        icon: "📷",
-      },
-      {
-        title: "AI-Powered Video Analytics",
-        description:
-          "Intelligent analytics to detect motion, intrusion and susipcious activities",
-        icon: "🤖",
-      },
-      {
-        title: "Remote Monitoring",
-        description:
-          "Access live CCTV footage from any device, anywhere in the world",
-        icon: "📡",
-      },
-      {
-        title: "Night Vision & Thermal Imaging",
-      },
-      {
-        title: "Cloud storage & Backup",
-      },
-      {
-        title: "Scalability & Integration",
-      },
-    ],
+    additionalInfo: {
+      title: "Why Choose Odoo ERP?",
+      description:
+        "Odoo ERP provides an extensive set of tools that help companies optimize their business processes. With seamless integrations, advanced analytics, and real-time collaboration, it's the perfect choice for scaling businesses.",
+    },
   },
 };
 
@@ -133,7 +72,7 @@ const ServiceDetail = () => {
 
   return (
     <div className="bg-gray-50 min-h-screen">
-      {/* Header Section */}
+      {/* Hero Section */}
       <div className="relative w-full h-96">
         <img
           src={service.image}
@@ -147,7 +86,7 @@ const ServiceDetail = () => {
         </div>
       </div>
 
-      {/* Service Description */}
+      {/* Description Section */}
       <div className="container mx-auto py-16 px-6 lg:px-24">
         <p className="text-lg text-gray-700 leading-relaxed" data-aos="fade-up">
           {service.description}
@@ -177,6 +116,22 @@ const ServiceDetail = () => {
           ))}
         </div>
       </div>
+
+      {/* Additional Info Section */}
+      {service.additionalInfo && (
+        <div className="container mx-auto py-16 px-6 lg:px-24">
+          <h2
+            className="text-3xl font-bold text-gray-800 mb-8"
+            data-aos="fade-up">
+            {service.additionalInfo.title}
+          </h2>
+          <p
+            className="text-lg text-gray-700 leading-relaxed"
+            data-aos="fade-up">
+            {service.additionalInfo.description}
+          </p>
+        </div>
+      )}
 
       {/* Call to Action */}
       <div className="bg-gradient-to-r from-blue-600 to-teal-500 py-16 text-center text-white">

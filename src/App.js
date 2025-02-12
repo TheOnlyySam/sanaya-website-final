@@ -8,6 +8,7 @@ import MissionVision from "./components/MissionVision";
 import Partners from "./components/Partners";
 import ServiceDetail from "./components/ServiceDetail"; // Import ServiceDetail component
 import Contact from "./components/Contact";
+import ScrollToTop from "./components/ScrollToTop"; // Import ScrollToTop component
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -23,6 +24,8 @@ function App() {
 
   return (
     <Router>
+      {/* ScrollToTop listens to route changes and scrolls to the top */}
+      <ScrollToTop />
       <Navbar />
       <Routes>
         {/* Home Page */}
