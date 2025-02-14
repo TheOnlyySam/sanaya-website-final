@@ -5,53 +5,39 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 const serviceDetails = {
-  "odoo-erp-system": {
-    title: "Odoo ERP System",
-    description:
-      "Odoo ERP System is an all-in-one management software that provides a range of business applications including CRM, eCommerce, accounting, inventory, and project management. It enables businesses to streamline operations, improve efficiency, and drive innovation.",
-    image: "/assets/odoo-banner.jpg",
+  "data-centers": {
+    title: "Data Centers",
+    image: "/assets/data-center-banner.png",
+    description: "We deliver state-of-the-art data solutions",
     features: [
       {
-        title: "Integrated CRM & Sales",
-        description:
-          "Manage leads, track opportunities, and close deals efficiently.",
-        icon: "📊",
+        title: "High Speed Networking",
+        description: " Implemenation of high-bandwidth connections",
+        icon: "⚡",
       },
       {
-        title: "Accounting & Finance",
+        title: "Software-defined Networking (SDN)",
         description:
-          "Automate invoicing, track expenses, and manage cash flow seamlessly.",
-        icon: "💰",
+          "Adoption of SDN to separate the control plane from the data plane, allowing for dynamic and flexible network management.",
+        icon: "🌐",
       },
       {
-        title: "Inventory & Warehouse",
+        title: "Advanced Security Measures",
         description:
-          "Advanced inventory management with real-time stock tracking.",
-        icon: "📦",
+          "Integration of next-generation firewalls, intrusion prevention systems, and security information and event management (SIEM) systems to protect against cyber threats and ensure data integrity",
+        icon: "🔒",
       },
       {
-        title: "HR & Employee Management",
+        title: "Energy-Efficient Infrastructure",
         description:
-          "Simplify HR tasks, payroll, and employee records management.",
-        icon: "👨‍💼",
-      },
-      {
-        title: "Project Management",
-        description:
-          "Plan, track, and execute projects with powerful collaboration tools.",
-        icon: "📝",
-      },
-      {
-        title: "E-Commerce Integration",
-        description:
-          "Sync online stores with inventory, sales, and marketing tools.",
-        icon: "🛒",
+          "Design and implementation of energy-efficient cooling systems and power management solutions to optimize energy consumption and reduce operational costs.",
+        icon: "❄️",
       },
     ],
     additionalInfo: {
-      title: "Why Choose Odoo ERP?",
+      title: "Why choose out data center solutions?",
       description:
-        "Odoo ERP provides an extensive set of tools that help companies optimize their business processes. With seamless integrations, advanced analytics, and real-time collaboration, it's the perfect choice for scaling businesses.",
+        "Sanaya is committed to providing state-of-the-art data center solutions that align with the evolving needs of modern businesses. Our team of certified professionals leverages industry best practices and cutting-edge technologies to deliver data centers that are not only efficient and secure but also adaptable to future advancements. Partner with us to build a data center infrastructure that supports your business objectives and drives growth.",
     },
   },
 };
@@ -74,7 +60,6 @@ const ServiceDetail = () => {
 
   return (
     <div className="bg-gray-50 min-h-screen">
-      {/* Hero Section */}
       <div className="relative w-full h-96">
         <img
           src={service.image}
@@ -88,14 +73,12 @@ const ServiceDetail = () => {
         </div>
       </div>
 
-      {/* Description Section */}
       <div className="container mx-auto py-16 px-6 lg:px-24">
         <p className="text-lg text-gray-700 leading-relaxed" data-aos="fade-up">
           {service.description}
         </p>
       </div>
 
-      {/* Features Section */}
       <div className="bg-white py-16 px-6 lg:px-24">
         <h2
           className="text-3xl font-bold text-gray-800 mb-8 text-center"
@@ -119,7 +102,6 @@ const ServiceDetail = () => {
         </div>
       </div>
 
-      {/* Additional Info Section */}
       {service.additionalInfo && (
         <div className="container mx-auto py-16 px-6 lg:px-24">
           <h2
@@ -135,7 +117,6 @@ const ServiceDetail = () => {
         </div>
       )}
 
-      {/* Call to Action */}
       <div className="bg-gradient-to-r from-blue-600 to-teal-500 py-16 text-center text-white">
         <h2 className="text-3xl font-bold mb-4" data-aos="fade-up">
           Get Started with {service.title}
@@ -143,7 +124,6 @@ const ServiceDetail = () => {
         <p className="text-lg mb-6" data-aos="fade-up" data-aos-delay="200">
           Transform your business operations today with {service.title}.
         </p>
-
         <button
           onClick={() => navigate("/", { state: { scrollTo: "Contact" } })}
           className="bg-white text-blue-600 font-semibold py-3 px-8 rounded-full shadow-lg transition-all duration-300 hover:bg-gray-200 pointer-events-auto"

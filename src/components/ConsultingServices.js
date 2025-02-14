@@ -3,27 +3,12 @@ import { Link } from "react-router-dom";
 
 const consultingServices = [
   {
-    title: "Networking & Security Solutions",
+    title: "Data Center",
     description:
-      "Through our Networking and security vendors, we provide wide range of products and services by delivering turnkey solutions, allowing the combination of many platforms’ connectivity services to wide range of clients and organizations.",
-    image: "security.webp",
-    link: "/services/networking-security-solutions",
+      "We provide high-performance, scalable, and secure data center solutions.",
+    image: "data-center-banner.png",
+    link: "/services/data-centers", //
   },
-  {
-    title: "Structured Cabling",
-    description:
-      "Sanaya Passive team can deliver, design and install the structured cabling for a building, campus and telecommunication cabling infrastructure.",
-    image: "cable.jpg",
-    link: "/services/structured-cabling",
-  },
-  {
-    title: "IP Telephony and Video Conferencing Systems",
-    description:
-      "Through our leading vendors in IP telephony and video conferencing systems, Sanaya can provide the video conferencing room that meet all business needs from small to enterprise to give our clients flexibility and easy to use and manage their online meetings through user friendly systems in different locations across Iraq by secure connections.",
-    image: "telephony.png",
-    link: "/services/ip-telephony",
-  },
-  // Add more services similarly...
 ];
 
 const ConsultingServices = () => {
