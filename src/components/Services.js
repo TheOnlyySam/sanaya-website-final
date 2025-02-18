@@ -10,6 +10,14 @@ const professionalServices = [
     link: "/services/odoo-erp-system",
   },
   {
+    title: "Data Centers",
+    description:
+      "Sanaya's data centers deliver high-performance computing with cutting-edge infrastructure, ensuring maximum uptime, scalability, and security for businesses of all sizes. Designed for efficiency, they feature advanced cooling, energy optimization, and robust networking to handle high workloads with minimal latency. With top-tier security, redundancy, and seamless cloud integration, Sanaya’s data centers provide a reliable foundation for mission-critical applications.",
+
+    image: "datacenter.webp",
+    link: "/services/data-centers",
+  },
+  {
     title: "Networking & Security Solutions",
     description:
       "Through our Networking and security vendors, we provide a wide range of products and services by delivering turnkey solutions, allowing the combination of many platforms' connectivity.",
@@ -99,7 +107,7 @@ const Services = () => {
           <h2
             className="text-4xl font-bold text-gray-800 mb-6"
             data-aos="fade-up">
-            Professional Services
+            Solutions
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {renderServiceCards(professionalServices)}
