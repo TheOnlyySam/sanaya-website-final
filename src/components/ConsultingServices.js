@@ -3,11 +3,25 @@ import { Link } from "react-router-dom";
 
 const consultingServices = [
   {
-    title: "Data Center",
+    title: "Consulting Services",
     description:
       "We provide high-performance, scalable, and secure data center solutions.",
     image: "data-center-banner.png",
-    link: "/services/data-centers", //
+    link: "/services/consulting-services", //
+  },
+  {
+    title: "Support Services",
+    description:
+      "We provide high-performance, scalable, and secure data center solutions.",
+    image: "247.jpg",
+    link: "/services/support-services", //
+  },
+  {
+    title: "Deployment Services",
+    description:
+      "We provide high-performance, scalable, and secure data center solutions.",
+    image: "data-center-banner.png",
+    link: "/services/deployment-services", //
   },
 ];
 
@@ -59,7 +73,7 @@ const ConsultingServices = () => {
           <h2
             className="text-4xl font-bold text-gray-800 mb-6"
             data-aos="fade-up">
-            Consulting Services & Solutions
+            Services
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {renderServiceCards(consultingServices)}

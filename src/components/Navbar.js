@@ -83,7 +83,7 @@ const Navbar = () => {
             <li
               className="cursor-pointer hover:text-blue-500 transition-colors duration-75"
               onClick={() => scrollToSection("ConsultingServices")}>
-              Consulting Services & Solutions
+              Services
             </li>
             <li
               className="cursor-pointer hover:text-blue-500 transition-colors duration-75"

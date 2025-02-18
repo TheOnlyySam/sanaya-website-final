@@ -24,13 +24,7 @@ const professionalServices = [
     image: "Network-Security.jpg",
     link: "/services/networking-security-solutions",
   },
-  {
-    title: "CCTV Solutions",
-    description:
-      "Through our trusted CCTV technology partners, we offer a comprehensive suite of surveillance products and services. By delivering turnkey solutions, we seamlessly integrate multiple platforms to provide robust, centralized monitoring and enhanced security across any environment.",
-    image: "cctv.jpg",
-    link: "/services/cctv-solutions",
-  },
+
   // Add more services similarly...
 ];
 
@@ -111,17 +105,6 @@ const Services = () => {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {renderServiceCards(professionalServices)}
-          </div>
-        </div>
-
-        <div className="mb-16">
-          <h2
-            className="text-4xl font-bold text-gray-800 mb-6"
-            data-aos="fade-up">
-            Support Services
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {renderServiceCards(supportServices)}
           </div>
         </div>
       </div>
