@@ -3,13 +3,18 @@ import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 const dataCenterDetails = {
   title: "Data Centers",
   description:
     "In today’s digital landscape, businesses require high-performance, scalable, and secure data centers to drive innovation, streamline operations, and ensure business continuity. Sanaya Techs delivers cutting-edge data center solutions, tailored to the evolving needs of enterprises, startups, and government institutions. Our solutions range from on-premises and cloud-based server deployments to hyper-converged infrastructures (HCI), virtual desktop environments (VDI), and high-speed networking technologies.",
   image: "/assets/data-center-banner.png",
-  descriptionImage: "/assets/data-center-banner.png", // Added image for description
+  descriptionImages: ["/warner1.png", "/warner2.png", "/warner3.png"],
   features: [
     {
       title: "FM200 Fire Suppression System 🔥",
@@ -130,20 +135,41 @@ const DataCenter = () => {
           </h1>
         </div>
       </div>
-
-      {/* Overview Section */}
+      {/* Overview Section with Swiper Image Slider for Description Images */}
       <div className="container mx-auto py-16 px-6 lg:px-24 flex flex-col lg:flex-row items-center gap-8">
         <div className="lg:w-1/2" data-aos="fade-up">
           <p className="text-lg text-gray-700 leading-relaxed">
             {dataCenterDetails.description}
           </p>
         </div>
-        <div className="lg:w-1/2" data-aos="fade-up">
-          <img
-            src={dataCenterDetails.descriptionImage}
-            alt="Data Center Overview"
-            className="w-full rounded-lg shadow-lg"
-          />
+
+        {/* Description Image Slider */}
+        {/* Description Image Slider */}
+        <div className="lg:w-1/2 w-full" data-aos="fade-up">
+          <Swiper
+            modules={[Navigation, Pagination, Autoplay]}
+            navigation
+            pagination={{ clickable: true }}
+            autoplay={{ delay: 3000, disableOnInteraction: true }}
+            loop={true}
+            grabCursor={true} // Enables smooth swipe gestures
+            touchStartPreventDefault={false} // Ensures touch gestures work properly
+            breakpoints={{
+              320: { slidesPerView: 1, spaceBetween: 10 }, // Small screens
+              640: { slidesPerView: 1, spaceBetween: 20 }, // Tablets
+              1024: { slidesPerView: 1, spaceBetween: 30 }, // Large screens
+            }}
+            className="w-full rounded-lg shadow-lg">
+            {dataCenterDetails.descriptionImages.map((image, index) => (
+              <SwiperSlide key={index}>
+                <img
+                  src={image}
+                  alt={`Description Image ${index + 1}`}
+                  className="w-full h-auto max-h-80 object-cover rounded-lg"
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </div>
 
