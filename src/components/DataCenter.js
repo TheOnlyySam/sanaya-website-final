@@ -161,18 +161,24 @@ const DataCenter = () => {
             modules={[Navigation, Pagination, Autoplay]}
             navigation
             pagination={{ clickable: true }}
-            autoplay={{ delay: 3000, disableOnInteraction: true }}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: false,
+            }}
             loop={true}
+            speed={500} // Smooth transitions
             grabCursor={true}
             touchStartPreventDefault={false}
+            cssMode={false} // Improves animation smoothness
             breakpoints={{
-              320: { slidesPerView: 1, spaceBetween: 10 },
-              640: { slidesPerView: 1, spaceBetween: 20 },
-              1024: { slidesPerView: 1, spaceBetween: 30 },
+              320: { slidesPerView: 1, spaceBetween: 5 },
+              640: { slidesPerView: 1, spaceBetween: 10 },
+              1024: { slidesPerView: 1, spaceBetween: 15 },
             }}
             className="w-full rounded-lg shadow-lg">
             {dataCenterDetails.descriptionImages.map((image, index) => (
-              <SwiperSlide key={index}>
+              <SwiperSlide key={index} className="will-change-transform">
                 <img
                   src={image}
                   alt={`Description Image ${index + 1}`}
