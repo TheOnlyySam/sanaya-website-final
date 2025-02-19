@@ -6,7 +6,7 @@ const consultingServices = [
     title: "Consulting Services",
     description:
       "We provide high-performance, scalable, and secure data center solutions.",
-    image: "data-center-banner.png",
+    image: "consulting.jpg",
     link: "/services/consulting-services", //
   },
   {

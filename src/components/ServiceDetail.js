@@ -5,6 +5,92 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 const serviceDetails = {
+  "consulting-services": {
+    title: "Consulting Services",
+    image: "/consulting.jpg",
+    description:
+      "All our consultation services are delivered by a team of highly trained professionals with extensive industry experience, ensuring expert guidance, innovative solutions, and tailored strategies that align with your business goals. Our specialists are equipped with the latest knowledge, certifications, and hands-on expertise to provide top-tier consulting, guaranteeing efficiency, security, and long-term success for your organization.",
+    features: [
+      {
+        title: "IT Consultation",
+        description:
+          "We provide expert guidance on IT infrastructure, digital transformation, and technology implementation strategies to optimize business operations.",
+        icon: "🖥️",
+      },
+      {
+        title: "Cybersecurity Consultation",
+        description:
+          "Our team assesses your security posture and provides tailored solutions to protect your digital assets from cyber threats and data breaches.",
+        icon: "🔒",
+      },
+      {
+        title: "Cloud Solutions & Migration",
+        description:
+          "We assist in cloud adoption, migration, and optimization to ensure seamless integration with your business needs.",
+        icon: "☁️",
+      },
+      {
+        title: "Data Centers & Infrastructure",
+        description:
+          "We design, implement, and maintain data center solutions to support high-performance computing and secure data storage.",
+        icon: "🏢",
+      },
+      {
+        title: "CCTV & Surveillance Solutions",
+        description:
+          "Our experts help you choose, install, and manage surveillance systems to enhance security for businesses and residential areas.",
+        icon: "📹",
+      },
+      {
+        title: "Software Development Consultation",
+        description:
+          "From requirement analysis to deployment, we provide software solutions that meet your business needs, ensuring efficiency and scalability.",
+        icon: "💻",
+      },
+      {
+        title: "Internal Systems & ERP Consultation",
+        description:
+          "We help businesses implement internal systems such as ERP, CRM, and HRMS to streamline operations and enhance productivity.",
+        icon: "🏢",
+      },
+      {
+        title: "Network Design & Optimization",
+        description:
+          "Our team designs and optimizes network infrastructure to ensure high availability, scalability, and security.",
+        icon: "📶",
+      },
+      {
+        title: "Project Management Consultation",
+        description:
+          "We provide end-to-end project management services, from planning and execution to monitoring and delivery, ensuring project success.",
+        icon: "📊",
+      },
+      {
+        title: "IoT & Smart Solutions",
+        description:
+          "We offer IoT-based consultation to integrate smart technology into businesses, homes, and industrial environments.",
+        icon: "📡",
+      },
+      {
+        title: "Business Process Automation",
+        description:
+          "We help businesses automate repetitive tasks, optimize workflows, and improve overall efficiency using advanced automation technologies.",
+        icon: "⚙️",
+      },
+      {
+        title: "AI & Machine Learning Consultation",
+        description:
+          "We provide expert guidance on IT infrastructure, digital transformation, and technology implementation strategies to optimize business operations.",
+        icon: "🤖",
+      },
+      {
+        title: "IT Support & Managed Services",
+        description:
+          "We provide 24/7 IT support, maintenance, and troubleshooting services to ensure smooth business operations.",
+        icon: "🛠️",
+      },
+    ],
+  },
   "support-services": {
     title: "Support Services",
     image: "/service-banner.jpg",
