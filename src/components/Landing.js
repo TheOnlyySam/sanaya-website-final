@@ -1,35 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import { FaPlay, FaPause } from "react-icons/fa";
 
 const Landing = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef(null);
-
-  useEffect(() => {
-    // Try to autoplay
-    const playAudio = () => {
-      audioRef.current
-        .play()
-        .then(() => setIsPlaying(true)) // If autoplay works, set playing state
-        .catch(() => setIsPlaying(false)); // If blocked, user must interact
-    };
-
-    playAudio();
-
-    // Enable playback when user interacts with the page
-    const enableAudio = () => {
-      if (!isPlaying) {
-        audioRef.current.play().catch(() => {});
-        setIsPlaying(true);
-      }
-      document.removeEventListener("click", enableAudio);
-    };
-    document.addEventListener("click", enableAudio);
-
-    return () => {
-      document.removeEventListener("click", enableAudio);
-    };
-  }, []);
 
   // Scroll to Contact Section
   const scrollToContact = () => {
@@ -37,6 +11,16 @@ const Landing = () => {
     if (contactSection) {
       contactSection.scrollIntoView({ behavior: "smooth" });
     }
+  };
+
+  // Play/Pause Music
+  const toggleMusic = () => {
+    if (isPlaying) {
+      audioRef.current.pause();
+    } else {
+      audioRef.current.play().catch(() => {}); // Catch any play errors
+    }
+    setIsPlaying(!isPlaying);
   };
 
   return (
@@ -57,7 +41,7 @@ const Landing = () => {
       {/* Semi-transparent overlay */}
       <div className="absolute inset-0 bg-black opacity-40"></div>
 
-      {/* Background Music */}
+      {/* Background Music (Only plays when the button is pressed) */}
       <audio ref={audioRef} src="/music.mp3" loop></audio>
 
       {/* Centered Content */}
@@ -85,14 +69,7 @@ const Landing = () => {
 
         {/* Play/Pause Music Button */}
         <button
-          onClick={() => {
-            if (isPlaying) {
-              audioRef.current.pause();
-            } else {
-              audioRef.current.play().catch(() => {});
-            }
-            setIsPlaying(!isPlaying);
-          }}
+          onClick={toggleMusic}
           className="mt-4 bg-gray-800 bg-opacity-75 text-white px-6 py-2 rounded-lg transition hover:bg-gray-600 flex items-center">
           {isPlaying ? (
             <>
