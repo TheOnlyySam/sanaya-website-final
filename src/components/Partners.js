@@ -18,6 +18,7 @@ const partnersData = [
       { name: "Partner D", logo: "/partners/Canovate Logo.png" },
       { name: "Partner E", logo: "/partners/leviton.png" },
       { name: "Partner F", logo: "/partners/linx.png" },
+      { name: "Partner F", logo: "/partners/corning.png" },
     ],
   },
   {
