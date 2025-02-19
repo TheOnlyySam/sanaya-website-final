@@ -8,10 +8,15 @@ export default async function handler(req, res) {
   const { name, email, message } = req.body;
 
   const transporter = nodemailer.createTransport({
-    service: "Gmail",
+    host: "mail.sanayatechs.iq",
+    port: 465,
+    secure: false, // Use TLS
     auth: {
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASS,
+    },
+    tls: {
+      rejectUnauthorized: false, // Bypass TLS verification
     },
   });
 
