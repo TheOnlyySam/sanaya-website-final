@@ -5,6 +5,86 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 const serviceDetails = {
+  "deployment-services": {
+    title: "Deployment Services",
+    image: "/deployment.jpg",
+    description:
+      "All our deployment services are executed by a team of highly trained professionals with deep technical expertise, ensuring seamless implementation, integration, and optimization of cutting-edge solutions. Whether it’s IT infrastructure, cloud solutions, or security systems, our specialists follow best practices to guarantee efficient, secure, and scalable deployments tailored to your business needs.",
+    features: [
+      {
+        title: "IT Infrastructure Deployment",
+        description:
+          "We deploy and configure IT infrastructure, including servers, storage, and networking solutions, ensuring high performance and scalability.",
+        icon: "🖥️",
+      },
+      {
+        title: "Cloud Deployment & Integration",
+        description:
+          "Our team specializes in deploying cloud-based environments, integrating hybrid cloud solutions, and ensuring seamless cloud adoption.",
+        icon: "☁️",
+      },
+      {
+        title: "Cybersecurity Solutions Deployment",
+        description:
+          "We implement advanced security measures, including firewalls, intrusion detection systems, and endpoint security to safeguard your digital assets.",
+        icon: "🔒",
+      },
+      {
+        title: "Data Center Deployment",
+        description:
+          "We design and deploy data centers with optimal power efficiency, security, and high availability to meet enterprise-level demands.",
+        icon: "🏢",
+      },
+      {
+        title: "CCTV & Surveillance System Deployment",
+        description:
+          "We install and configure surveillance systems, ensuring 24/7 monitoring, remote access, and high-definition security footage.",
+        icon: "📹",
+      },
+      {
+        title: "Software & Application Deployment",
+        description:
+          "We handle the deployment of software solutions, from enterprise applications to SaaS platforms, ensuring smooth integration with existing systems.",
+        icon: "💻",
+      },
+      {
+        title: "Internal Systems & ERP Deployment",
+        description:
+          "We deploy ERP, CRM, and HRMS solutions to enhance internal operations, improve workflow automation, and drive business efficiency.",
+        icon: "🏢",
+      },
+      {
+        title: "Network Deployment & Optimization",
+        description:
+          "Our team deploys robust network infrastructures, optimizing for speed, security, and reliability to support business operations.",
+        icon: "📶",
+      },
+      {
+        title: "IoT & Smart Systems Deployment",
+        description:
+          "We deploy IoT solutions for smart homes, industrial automation, and business environments, enabling seamless connectivity and automation.",
+        icon: "📡",
+      },
+      {
+        title: "AI & Machine Learning Deployment",
+        description:
+          "We implement AI models and machine learning solutions, integrating intelligent automation and data-driven insights into business processes.",
+        icon: "🤖",
+      },
+      {
+        title: "Business Process Automation Deployment",
+        description:
+          "We deploy automation tools to streamline repetitive tasks, enhance operational efficiency, and reduce manual workloads.",
+        icon: "⚙️",
+      },
+      {
+        title: "IT Support & Managed Services Deployment",
+        description:
+          "We set up IT support systems, ensuring proactive monitoring, troubleshooting, and maintenance for uninterrupted business continuity.",
+        icon: "🛠️",
+      },
+    ],
+  },
   "consulting-services": {
     title: "Consulting Services",
     image: "/consulting.jpg",
