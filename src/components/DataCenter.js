@@ -9,6 +9,7 @@ const dataCenterDetails = {
   description:
     "In today’s digital landscape, businesses require high-performance, scalable, and secure data centers to drive innovation, streamline operations, and ensure business continuity. Sanaya Techs delivers cutting-edge data center solutions, tailored to the evolving needs of enterprises, startups, and government institutions. Our solutions range from on-premises and cloud-based server deployments to hyper-converged infrastructures (HCI), virtual desktop environments (VDI), and high-speed networking technologies.",
   image: "/assets/data-center-banner.png",
+  descriptionImage: "/assets/data-center-banner.png", // Added image for description
   features: [
     {
       title: "FM200 Fire Suppression System 🔥",
@@ -131,12 +132,19 @@ const DataCenter = () => {
       </div>
 
       {/* Overview Section */}
-      <div className="container mx-auto py-16 px-6 lg:px-24">
-        <p
-          className="text-lg text-gray-700 leading-relaxed text-center"
-          data-aos="fade-up">
-          {dataCenterDetails.description}
-        </p>
+      <div className="container mx-auto py-16 px-6 lg:px-24 flex flex-col lg:flex-row items-center gap-8">
+        <div className="lg:w-1/2" data-aos="fade-up">
+          <p className="text-lg text-gray-700 leading-relaxed">
+            {dataCenterDetails.description}
+          </p>
+        </div>
+        <div className="lg:w-1/2" data-aos="fade-up">
+          <img
+            src={dataCenterDetails.descriptionImage}
+            alt="Data Center Overview"
+            className="w-full rounded-lg shadow-lg"
+          />
+        </div>
       </div>
 
       {/* Features Section */}

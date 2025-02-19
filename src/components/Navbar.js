@@ -129,18 +129,18 @@ const Navbar = () => {
               </li>
               <li
                 className="cursor-pointer hover:text-blue-500 transition-colors duration-75"
-                onClick={() => scrollToSection("services")}>
-                Services
-              </li>
-              <li
-                className="cursor-pointer hover:text-blue-500 transition-colors duration-75"
                 onClick={() => scrollToSection("partners")}>
                 Partners
               </li>
               <li
                 className="cursor-pointer hover:text-blue-500 transition-colors duration-75"
-                onClick={() => scrollToSection("consulting")}>
-                Consulting Services & Solutions
+                onClick={() => scrollToSection("services")}>
+                Solutions
+              </li>
+              <li
+                className="cursor-pointer hover:text-blue-500 transition-colors duration-75"
+                onClick={() => scrollToSection("ConsultingServices")}>
+                Services
               </li>
               <li
                 className="cursor-pointer hover:text-blue-500 transition-colors duration-75"
