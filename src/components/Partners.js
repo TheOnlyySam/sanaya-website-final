@@ -6,10 +6,10 @@ const partnersData = [
   {
     category: "Data Center and Digital Power",
     partners: [
+      { name: "Partner D", logo: "/partners/schneider.png" },
       { name: "Partner A", logo: "/partners/Huawei.png" },
       { name: "Partner B", logo: "/partners/Canovate Logo.png" },
       { name: "Partner C", logo: "/partners/Vertiv.png" },
-      { name: "Partner D", logo: "/partners/schneider.png" },
     ],
   },
   {
