@@ -100,13 +100,13 @@ const dataCenterDetails = {
       title: "Micro Data Centers",
       description:
         "A micro data center is a compact, self-contained IT infrastructure designed to provide localized data processing and storage capabilities. Micro data centers are typically used by businesses and organizations that require high-performance computing and storage capabilities in remote or edge locations, such as manufacturing plants, retail stores, and remote offices. Unlike traditional data centers, which are often large, centralized facilities, micro data centers are designed to be small and modular, allowing for easy deployment and scalability. They typically consist of a compact enclosure or rack that houses servers, storage devices, networking equipment, and cooling and power systems. Micro data centers offer several benefits, including improved performance and reduced latency for critical applications, as well as improved data security and privacy. Because they are located close to the edge, micro data centers can process and store data locally, reducing the need for data to be transmitted to a centralized facility. Micro data centers can also help organizations reduce costs by reducing the need for expensive network infrastructure and reducing the amount of data that needs to be transmitted over long distances. Additionally, micro data centers can help organizations comply with data privacy regulations by ensuring that data is stored and processed locally. Overall, micro data centers are an essential component of modern IT infrastructure, providing organizations with the necessary tools and resources to manage and process data in remote and edge locations.",
-      images: ["/datacenter4.jpeg", "/datacenter7.jpeg", "/datacenter6.jpeg"],
+      images: ["/micro1.png", "/micro2.png", "/micro3.png"],
     },
     {
       title: "Modular Data Centers",
       description:
         "A modular data center is a pre-engineered, self-contained IT infrastructure designed for rapid deployment, scalability, and high efficiency. These data centers consist of pre-fabricated modules that house essential components such as servers, networking equipment, power, cooling, and security systems. They are widely used by enterprises, cloud service providers, and organizations needing flexible and cost-effective data center solutions. Unlike traditional brick-and-mortar data centers, modular data centers are designed to be highly scalable and portable, allowing organizations to expand their IT capacity quickly and efficiently. Each module functions as an independent unit, meaning businesses can add or remove modules based on demand without disrupting existing operations. This modular approach significantly reduces deployment time, allowing businesses to set up a data center in weeks instead of months or years. Modular data centers offer several advantages, including faster deployment, lower energy consumption, and improved cooling efficiency due to their compact and optimized designs. They are also cost-effective, as organizations can invest in only the capacity they need, avoiding the high upfront costs of building traditional data centers. Additionally, modular data centers are designed with advanced security and redundancy features, ensuring high availability and disaster recovery capabilities. Another key benefit of modular data centers is their ability to be deployed in remote or harsh environments, making them ideal for industries such as military, mining, oil & gas, and telecommunications. Their self-contained nature also improves energy efficiency by utilizing advanced airflow management and liquid cooling technologies. Overall, modular data centers represent the future of IT infrastructure, offering organizations a scalable, efficient, and rapidly deployable solution to meet their growing computing and storage needs.",
-      images: ["/warner3.png", "/datacenter9.jpeg", "/datacenter10.jpeg"],
+      images: ["/warner3.png", "/warner1.png", "/warner2.png"],
     },
     {
       title: "Mobile Data Centers (Container)",
@@ -185,7 +185,7 @@ const DataCenter = () => {
               <SwiperSlide key={index} className="will-change-transform">
                 <img
                   src={image}
-                  alt={`Description Image ${index + 1}`}
+                  alt={`Data Center Infrastructure ${index + 1}`}
                   className="w-full h-auto max-h-80 object-cover rounded-lg cursor-pointer"
                   onClick={() => setSelectedImage(image)}
                 />
@@ -274,7 +274,9 @@ const DataCenter = () => {
                           className="will-change-transform">
                           <img
                             src={image}
-                            alt={`${info.title} - Image ${imgIndex + 1}`}
+                            alt={`${info.title} - Infrastructure ${
+                              imgIndex + 1
+                            }`}
                             className="w-full h-auto max-h-80 object-cover rounded-lg cursor-pointer"
                             onClick={() => setSelectedImage(image)}
                           />

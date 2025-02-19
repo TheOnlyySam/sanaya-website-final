@@ -20,7 +20,7 @@ const consultingServices = [
     title: "Deployment Services",
     description:
       "We provide high-performance, scalable, and secure data center solutions.",
-    image: "data-center-banner.png",
+    image: "deployment.jpg",
     link: "/services/deployment-services", //
   },
 ];
