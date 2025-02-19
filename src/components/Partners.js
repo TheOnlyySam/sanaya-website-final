@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { FaArrowRight } from "react-icons/fa";
 
 // Sample partner data – update file names/paths as needed.
@@ -6,52 +6,51 @@ const partnersData = [
   {
     category: "Data Center and Digital Power",
     partners: [
-      { name: "Partner A", logo: "/partners/Huawei.png", link: "#" },
-      { name: "Partner B", logo: "/partners/Canovate Logo.png", link: "#" },
-      { name: "Partner C", logo: "/partners/Vertiv.png", link: "#" },
-      { name: "Partner D", logo: "/partners/schneider.png", link: "#" },
+      { name: "Partner A", logo: "/partners/Huawei.png" },
+      { name: "Partner B", logo: "/partners/Canovate Logo.png" },
+      { name: "Partner C", logo: "/partners/Vertiv.png" },
+      { name: "Partner D", logo: "/partners/schneider.png" },
     ],
   },
   {
     category: "Structured Cabling",
     partners: [
-      { name: "Partner D", logo: "/partners/Canovate Logo.png", link: "#" },
-      { name: "Partner E", logo: "/partners/leviton.png", link: "#" },
-      { name: "Partner F", logo: "/partners/linx.png", link: "#" },
+      { name: "Partner D", logo: "/partners/Canovate Logo.png" },
+      { name: "Partner E", logo: "/partners/leviton.png" },
+      { name: "Partner F", logo: "/partners/linx.png" },
     ],
   },
   {
     category: "IP Surveillance and Smart Home Solutions",
     partners: [
-      { name: "Partner G", logo: "/partners/hawk.png", link: "#" },
-      { name: "Partner K", logo: "/partners/tiandy.png", link: "#" },
-      { name: "Partner K", logo: "/partners/bosch.png", link: "#" },
-      { name: "Partner K", logo: "/partners/genetec.png", link: "#" },
-      { name: "Partner H", logo: "/partners/axis.png", link: "#" },
-      { name: "Partner I", logo: "/partners/nix.jpg", link: "#" },
-      { name: "Partner J", logo: "/partners/bcdv.png", link: "#" },
-      { name: "Partner K", logo: "/partners/brief.png", link: "#" },
-
-      { name: "Partner L", logo: "/partners/veracity.webp", link: "#" },
+      { name: "Partner G", logo: "/partners/hawk.png" },
+      { name: "Partner K", logo: "/partners/tiandy.png" },
+      { name: "Partner K", logo: "/partners/bosch.png" },
+      { name: "Partner K", logo: "/partners/genetec.png" },
+      { name: "Partner H", logo: "/partners/axis.png" },
+      { name: "Partner I", logo: "/partners/nix.jpg" },
+      { name: "Partner J", logo: "/partners/bcdv.png" },
+      { name: "Partner K", logo: "/partners/brief.png" },
+      { name: "Partner L", logo: "/partners/veracity.webp" },
     ],
   },
   {
     category: "IP PBX and Video Conferencing Systems",
     partners: [
-      { name: "Partner M", logo: "/partners/3cxx.png", link: "#" },
-      { name: "Partner N", logo: "/partners/grandstream.png", link: "#" },
-      { name: "Partner O", logo: "/partners/fanvil.png", link: "#" },
+      { name: "Partner M", logo: "/partners/3cxx.png" },
+      { name: "Partner N", logo: "/partners/grandstream.png" },
+      { name: "Partner O", logo: "/partners/fanvil.png" },
     ],
   },
   {
     category: "Network and Security",
     partners: [
-      { name: "Partner P", logo: "/partners/aruba.png", link: "#" },
-      { name: "Partner Q", logo: "/partners/forcepoint.png", link: "#" },
-      { name: "Partner R", logo: "/partners/Forinet.png", link: "#" },
-      { name: "Partner S", logo: "/partners/kasper.png", link: "#" },
-      { name: "Partner T", logo: "/partners/dlink.png", link: "#" },
-      { name: "Partner U", logo: "/partners/Unifi.png", link: "#" },
+      { name: "Partner P", logo: "/partners/aruba.png" },
+      { name: "Partner Q", logo: "/partners/forcepoint.png" },
+      { name: "Partner R", logo: "/partners/Forinet.png" },
+      { name: "Partner S", logo: "/partners/kasper.png" },
+      { name: "Partner T", logo: "/partners/dlink.png" },
+      { name: "Partner U", logo: "/partners/Unifi.png" },
     ],
   },
 ];
@@ -59,8 +58,8 @@ const partnersData = [
 const Partners = () => {
   const [activeTab, setActiveTab] = useState(0);
   const [autoSwitch, setAutoSwitch] = useState(true);
+  const logoContainerRef = useRef(null); // Reference for the logo container
 
-  // Auto-switch tabs every 3 seconds if autoSwitch is enabled.
   useEffect(() => {
     if (autoSwitch) {
       const interval = setInterval(() => {
@@ -70,15 +69,18 @@ const Partners = () => {
     }
   }, [activeTab, autoSwitch]);
 
-  // Disable auto-switching when a user clicks a tab.
   const handleTabClick = (index) => {
     setAutoSwitch(false);
     setActiveTab(index);
+
+    // Reset the logo container scroll to the first logo
+    if (logoContainerRef.current) {
+      logoContainerRef.current.scrollLeft = 0;
+    }
   };
 
   return (
     <>
-      {/* Custom CSS for fade-in animation and hiding scrollbar */}
       <style>
         {`
           @keyframes fadeInUp {
@@ -108,14 +110,12 @@ const Partners = () => {
         id="partners"
         className="py-16 px-4 lg:px-24 bg-gradient-to-br from-blue-50 to-white scroll-mt-20">
         <div className="container mx-auto">
-          {/* Section Heading */}
           <h2
             className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-teal-500 mb-12"
             data-aos="fade-up">
             Our Partners
           </h2>
 
-          {/* Horizontal Tab Navigation */}
           <div className="relative">
             <div
               className="flex overflow-x-auto no-scrollbar mb-2"
@@ -136,7 +136,7 @@ const Partners = () => {
                 ))}
               </div>
             </div>
-            {/* Mobile scroll indicator for categories */}
+
             <div className="sm:hidden flex items-center justify-center mt-1">
               <FaArrowRight className="animate-bounce text-blue-600 mr-2" />
               <span className="text-sm text-gray-600">
@@ -145,11 +145,12 @@ const Partners = () => {
             </div>
           </div>
 
-          {/* Logos Row */}
+          {/* ✅ FIX: On desktop, ensure first logo is aligned left instead of centered */}
           <div
+            ref={logoContainerRef}
             key={activeTab}
-            className="container flex flex-nowrap justify-start sm:justify-center items-center 
-  gap-8  fade-in-up mt-8 overflow-x-auto overflow-hidden"
+            className="container flex flex-nowrap justify-start items-center 
+              gap-8 fade-in-up mt-8 overflow-x-auto overflow-hidden lg:justify-start"
             data-aos="fade-up">
             {partnersData[activeTab].partners.map((partner, index) => (
               <a
@@ -168,7 +169,7 @@ const Partners = () => {
               </a>
             ))}
           </div>
-          {/* Mobile scroll indicator for logos */}
+
           <div className="sm:hidden flex items-center justify-center mt-2">
             <FaArrowRight className="animate-bounce text-blue-600 mr-2" />
             <span className="text-sm text-gray-600">

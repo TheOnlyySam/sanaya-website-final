@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -371,6 +372,7 @@ const serviceDetails = {
 
 const ServiceDetail = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const { serviceId } = useParams();
   const service = serviceDetails[serviceId];
 
@@ -456,8 +458,33 @@ const ServiceDetail = () => {
         <p className="text-lg mb-6" data-aos="fade-up" data-aos-delay="200">
           Transform your business operations today with {service.title}.
         </p>
+
         <button
-          onClick={() => navigate("/", { state: { scrollTo: "Contact" } })}
+          onClick={() => {
+            if (location.pathname !== "/") {
+              navigate("/");
+
+              setTimeout(() => {
+                requestAnimationFrame(() => {
+                  const contactSection = document.getElementById("contact");
+                  if (contactSection) {
+                    contactSection.scrollIntoView({
+                      behavior: "smooth",
+                      block: "start",
+                    });
+                  }
+                });
+              }, 500);
+            } else {
+              const contactSection = document.getElementById("contact");
+              if (contactSection) {
+                contactSection.scrollIntoView({
+                  behavior: "smooth",
+                  block: "start",
+                });
+              }
+            }
+          }}
           className="bg-white text-blue-600 font-semibold py-3 px-8 rounded-full shadow-lg transition-all duration-300 hover:bg-gray-200 pointer-events-auto"
           data-aos="zoom-in">
           Contact Us

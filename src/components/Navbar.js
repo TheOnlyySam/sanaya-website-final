@@ -56,7 +56,7 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex items-center space-x-3">
             <img
-              src={scrolled || isOpen ? "logo2.png" : "logo1.png"}
+              src={scrolled || isOpen ? "/logo2.png" : "/logo1.png"}
               alt="Logo"
               className="h-12 sm:h-14 lg:h-16 w-auto object-contain cursor-pointer transition-colors duration-75 ease-out"
               onClick={() => scrollToSection("landing")}
@@ -101,7 +101,7 @@ const Navbar = () => {
               Download Company Profile
             </a>
             <a
-              href="/reference_list.pdf"
+              href="/Sanaya Reference List.pdf"
               download
               className="px-5 py-2 rounded-lg shadow-md transition-all duration-300 bg-green-500 text-white hover:bg-green-600 flex items-center">
               Download References List
