@@ -7,6 +7,8 @@ import Services from "./components/Services";
 import MissionVision from "./components/MissionVision";
 import Partners from "./components/Partners";
 import ServiceDetail from "./components/ServiceDetail"; // Import ServiceDetail component
+import DataCenter from "./components/DataCenter"; // Import DataCenter Component
+
 import Contact from "./components/Contact";
 import ScrollToTop from "./components/ScrollToTop"; // Import ScrollToTop component
 import AOS from "aos";
@@ -69,6 +71,8 @@ function App() {
 
         {/* Service Detail Page */}
         <Route path="/services/:serviceId" element={<ServiceDetail />} />
+        {/* New Data Center Route */}
+        <Route path="/services/data-centers" element={<DataCenter />} />
       </Routes>
     </Router>
   );

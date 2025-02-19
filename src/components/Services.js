@@ -28,31 +28,6 @@ const professionalServices = [
   // Add more services similarly...
 ];
 
-const supportServices = [
-  {
-    title: "24/7 Support Services",
-    description:
-      "Sanaya's support team provides round-the-clock support for all IT-related services to ensure maximum uptime.",
-    image: "247.jpg",
-    link: "/services/247-support-services",
-  },
-  {
-    title: "On-Call Services",
-    description:
-      "We offer expert-level on-call services to help you resolve technical challenges efficiently.",
-    image: "oncall.jpeg",
-    link: "/services/on-call-services",
-  },
-  {
-    title: "On-Demand Support Services",
-    description:
-      "Get flexible and on-demand support services to meet your IT requirements whenever needed.",
-    image: "ondemand.jpg",
-    link: "/services/on-demand-support-services",
-  },
-  // Add more services similarly...
-];
-
 const Services = () => {
   const renderServiceCards = (services) => {
     return services.map((service, index) => (
