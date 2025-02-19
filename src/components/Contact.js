@@ -24,16 +24,20 @@ const Contact = () => {
     }
 
     try {
-      const response = await axios.post(
-        "http://localhost:5000/send-email",
-        formData
-      );
+      const response = await axios.post("/api/email", formData, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
       setStatus({ type: "success", message: response.data.message });
       setFormData({ name: "", email: "", message: "" }); // Reset form
     } catch (error) {
       setStatus({
         type: "error",
-        message: "Failed to send email. Please try again.",
+        message:
+          error.response?.data?.error ||
+          "Failed to send email. Please try again.",
       });
     }
   };
@@ -41,7 +45,6 @@ const Contact = () => {
   return (
     <section id="contact" className="py-16 px-6 lg:px-24 bg-gray-50">
       <div className="container mx-auto">
-        {/* Section Header */}
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-gray-800" data-aos="fade-up">
             Get in Touch
@@ -54,9 +57,7 @@ const Contact = () => {
           </p>
         </div>
 
-        {/* Contact Form & Details */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-          {/* Contact Form */}
           <div
             className="bg-white p-8 rounded-lg shadow-lg"
             data-aos="fade-right">
@@ -123,9 +124,7 @@ const Contact = () => {
             </form>
           </div>
 
-          {/* Contact Information & Map */}
           <div className="space-y-8" data-aos="fade-left">
-            {/* Email */}
             <div className="bg-white p-6 rounded-lg shadow-lg flex items-center space-x-4">
               <FaEnvelope className="text-blue-500 text-3xl" />
               <div>
@@ -134,7 +133,6 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Phone */}
             <div className="bg-white p-6 rounded-lg shadow-lg flex items-center space-x-4">
               <FaPhone className="text-blue-500 text-3xl" />
               <div>
@@ -143,7 +141,6 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Address */}
             <div className="bg-white p-6 rounded-lg shadow-lg flex items-center space-x-4">
               <FaMapMarkerAlt className="text-blue-500 text-3xl" />
               <div>
@@ -154,7 +151,6 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Embedded Map */}
             <div className="w-full h-64 rounded-lg shadow-lg overflow-hidden">
               <iframe
                 title="Location Map"
