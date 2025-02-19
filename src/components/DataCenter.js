@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import AOS from "aos";
@@ -116,8 +116,19 @@ const dataCenterDetails = {
 const DataCenter = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const [selectedImage, setSelectedImage] = useState(null); // State for image modal
+
   useEffect(() => {
     AOS.init({ duration: 1000, easing: "ease-in-out" });
+
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        setSelectedImage(null);
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
   }, []);
 
   return (
@@ -135,7 +146,8 @@ const DataCenter = () => {
           </h1>
         </div>
       </div>
-      {/* Overview Section with Swiper Image Slider for Description Images */}
+
+      {/* Overview Section */}
       <div className="container mx-auto py-16 px-6 lg:px-24 flex flex-col lg:flex-row items-center gap-8">
         <div className="lg:w-1/2" data-aos="fade-up">
           <p className="text-lg text-gray-700 leading-relaxed">
@@ -144,7 +156,6 @@ const DataCenter = () => {
         </div>
 
         {/* Description Image Slider */}
-        {/* Description Image Slider */}
         <div className="lg:w-1/2 w-full" data-aos="fade-up">
           <Swiper
             modules={[Navigation, Pagination, Autoplay]}
@@ -152,12 +163,12 @@ const DataCenter = () => {
             pagination={{ clickable: true }}
             autoplay={{ delay: 3000, disableOnInteraction: true }}
             loop={true}
-            grabCursor={true} // Enables smooth swipe gestures
-            touchStartPreventDefault={false} // Ensures touch gestures work properly
+            grabCursor={true}
+            touchStartPreventDefault={false}
             breakpoints={{
-              320: { slidesPerView: 1, spaceBetween: 10 }, // Small screens
-              640: { slidesPerView: 1, spaceBetween: 20 }, // Tablets
-              1024: { slidesPerView: 1, spaceBetween: 30 }, // Large screens
+              320: { slidesPerView: 1, spaceBetween: 10 },
+              640: { slidesPerView: 1, spaceBetween: 20 },
+              1024: { slidesPerView: 1, spaceBetween: 30 },
             }}
             className="w-full rounded-lg shadow-lg">
             {dataCenterDetails.descriptionImages.map((image, index) => (
@@ -165,7 +176,8 @@ const DataCenter = () => {
                 <img
                   src={image}
                   alt={`Description Image ${index + 1}`}
-                  className="w-full h-auto max-h-80 object-cover rounded-lg"
+                  className="w-full h-auto max-h-80 object-cover rounded-lg cursor-pointer"
+                  onClick={() => setSelectedImage(image)}
                 />
               </SwiperSlide>
             ))}
@@ -197,22 +209,25 @@ const DataCenter = () => {
         </div>
       </div>
 
-      {/* Additional Info Section */}
-      {dataCenterDetails.additionalInfo &&
-        Array.isArray(dataCenterDetails.additionalInfo) && (
-          <div className="container mx-auto py-16 px-6 lg:px-24">
-            {dataCenterDetails.additionalInfo.map((info, index) => (
-              <div key={index} className="mb-12" data-aos="fade-up">
-                <h2 className="text-3xl font-bold text-gray-800 mb-4">
-                  {info.title}
-                </h2>
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  {info.description}
-                </p>
-              </div>
-            ))}
+      {/* Image Modal (Lightbox) */}
+      {selectedImage && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
+          onClick={() => setSelectedImage(null)}>
+          <div className="relative">
+            <button
+              className="absolute top-4 right-4 text-white text-3xl bg-gray-800 px-3 py-1 rounded-full"
+              onClick={() => setSelectedImage(null)}>
+              ✖
+            </button>
+            <img
+              src={selectedImage}
+              alt="Enlarged View"
+              className="max-w-full max-h-[90vh] object-contain"
+            />
           </div>
-        )}
+        </div>
+      )}
 
       {/* Call-to-Action Section */}
       <div className="bg-gradient-to-r from-blue-600 to-teal-500 py-16 text-center text-white">
@@ -226,7 +241,6 @@ const DataCenter = () => {
           onClick={() => {
             if (location.pathname !== "/") {
               navigate("/");
-
               setTimeout(() => {
                 requestAnimationFrame(() => {
                   const contactSection = document.getElementById("contact");
