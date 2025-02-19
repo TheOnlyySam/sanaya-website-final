@@ -95,13 +95,13 @@ const Navbar = () => {
           {/* Buttons Section */}
           <div className="hidden lg:flex space-x-4">
             <a
-              href="/Sanaya Company Profile Digital.pdf"
+              href="/Sanaya-Company-Profile-Digital.pdf"
               download
               className="px-5 py-2 rounded-lg shadow-md transition-all duration-300 bg-blue-500 text-white hover:bg-blue-600 flex items-center">
               Download Company Profile
             </a>
             <a
-              href="/Sanaya Reference List.pdf"
+              href="/Sanaya-Reference-List.pdf"
               download
               className="px-5 py-2 rounded-lg shadow-md transition-all duration-300 bg-green-500 text-white hover:bg-green-600 flex items-center">
               Download References List
