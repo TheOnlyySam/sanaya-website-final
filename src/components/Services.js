@@ -6,7 +6,7 @@ const professionalServices = [
     title: "Odoo ERP System",
     description:
       "Through our in-house Odoo expertise, we offer a comprehensive suite of solutions designed to transform your business operations. By delivering turnkey Odoo implementations, we seamlessly integrate multiple modules into a scalable, secure, and high-performance ERP platform—empowering your organization to streamline workflows, boost productivity, and drive innovation.",
-    image: "odoo.webp",
+    image: "odoooo.jpeg",
     link: "/services/odoo-erp-system",
   },
   {
