@@ -7,22 +7,27 @@ export default async function handler(req, res) {
 
   const { name, email, message } = req.body;
 
+  // Debugging: Check if environment variables are loaded
+  console.log("EMAIL_USER:", process.env.EMAIL_USER);
+  console.log("EMAIL_PASS:", process.env.EMAIL_PASS ? "Loaded" : "Not Found");
+
+  // SMTP Configuration for "mail.sanayatechs.iq"
   const transporter = nodemailer.createTransport({
-    host: "mail.sanayatechs.iq",
-    port: 465,
-    secure: false, // Use TLS
+    host: "mail.sanayatechs.iq", // Custom mail server
+    port: 465, // SMTP Port for outgoing emails
+    secure: true, // Use SSL/TLS
     auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS,
+      user: process.env.EMAIL_USER, // Your email (from environment variables)
+      pass: process.env.EMAIL_PASS, // Your email password (from environment variables)
     },
     tls: {
-      rejectUnauthorized: false, // Bypass TLS verification
+      rejectUnauthorized: false, // Allows self-signed certificates
     },
   });
 
   const mailOptions = {
-    from: process.env.EMAIL_USER,
-    to: "info@sanayatechs.iq",
+    from: process.env.EMAIL_USER, // Sender email
+    to: "info@sanayatechs.iq", // Recipient email
     subject: `New Contact Form Submission from ${name}`,
     text: `Email: ${email}\nMessage: ${message}`,
   };
@@ -31,6 +36,7 @@ export default async function handler(req, res) {
     await transporter.sendMail(mailOptions);
     res.status(200).json({ message: "Email sent successfully" });
   } catch (error) {
-    res.status(500).json({ error: "Failed to send email" });
+    console.error("Email failed:", error);
+    res.status(500).json({ error: error.message || "Failed to send email" });
   }
 }

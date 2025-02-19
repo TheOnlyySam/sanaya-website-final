@@ -234,7 +234,22 @@ const DataCenter = () => {
           </div>
         </div>
       )}
-
+      {/* Additional Info Section */}
+      {dataCenterDetails.additionalInfo &&
+        Array.isArray(dataCenterDetails.additionalInfo) && (
+          <div className="container mx-auto py-16 px-6 lg:px-24">
+            {dataCenterDetails.additionalInfo.map((info, index) => (
+              <div key={index} className="mb-12" data-aos="fade-up">
+                <h2 className="text-3xl font-bold text-gray-800 mb-4">
+                  {info.title}
+                </h2>
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  {info.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        )}
       {/* Call-to-Action Section */}
       <div className="bg-gradient-to-r from-blue-600 to-teal-500 py-16 text-center text-white">
         <h2 className="text-3xl font-bold mb-4" data-aos="fade-up">
