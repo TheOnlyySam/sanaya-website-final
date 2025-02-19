@@ -5,6 +5,32 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 const serviceDetails = {
+  "support-services": {
+    title: "Support Services",
+    image: "/service-banner.jpg",
+    description:
+      "Our Support Services ensure your business stays operational with round-the-clock assistance, rapid response times, and expert support on-demand. Whether you need immediate troubleshooting, scheduled maintenance, or urgent technical assistance, we are here to provide a seamless support experience tailored to your needs.",
+    features: [
+      {
+        title: "24/7 Support",
+        description:
+          "We provide continuous support around the clock to address critical issues, minimize downtime, and ensure business continuity.",
+        icon: "🕒",
+      },
+      {
+        title: "On-Call Services",
+        description:
+          "Get access to dedicated experts whenever you need assistance, ensuring your systems remain secure and fully operational.",
+        icon: "📞",
+      },
+      {
+        title: "On-Demand Support Services",
+        description:
+          "Request specialized support as needed for troubleshooting, system updates, performance optimization, and issue resolution.",
+        icon: "🛠️",
+      },
+    ],
+  },
   "odoo-erp-system": {
     title: "Odoo ERP System",
     image: "/odoo-banner.png",
