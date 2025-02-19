@@ -6,7 +6,7 @@ const partnersData = [
   {
     category: "Data Center and Digital Power",
     partners: [
-      { name: "Partner D", logo: "/partners/schneider.png" },
+      { name: "Partner D", logo: "/partners/Schneider.png" },
       { name: "Partner A", logo: "/partners/Huawei.png" },
       { name: "Partner B", logo: "/partners/Canovate Logo.png" },
       { name: "Partner C", logo: "/partners/Vertiv.png" },
@@ -46,10 +46,10 @@ const partnersData = [
     category: "Network and Security",
     partners: [
       { name: "Partner P", logo: "/partners/aruba.png" },
-      { name: "Partner Q", logo: "/partners/forcepoint.png" },
+      { name: "Partner Q", logo: "/partners/Forcepoint.png" },
       { name: "Partner R", logo: "/partners/Forinet.png" },
       { name: "Partner S", logo: "/partners/Kasper.png" },
-      { name: "Partner T", logo: "/partners/dlink.png" },
+      { name: "Partner T", logo: "/partners/Dlink.png" },
       { name: "Partner U", logo: "/partners/unifi.png" },
     ],
   },
