@@ -48,9 +48,9 @@ const partnersData = [
       { name: "Partner P", logo: "/partners/aruba.png" },
       { name: "Partner Q", logo: "/partners/forcepoint.png" },
       { name: "Partner R", logo: "/partners/Forinet.png" },
-      { name: "Partner S", logo: "/partners/kasper.png" },
+      { name: "Partner S", logo: "/partners/Kasper.png" },
       { name: "Partner T", logo: "/partners/dlink.png" },
-      { name: "Partner U", logo: "/partners/Unifi.png" },
+      { name: "Partner U", logo: "/partners/unifi.png" },
     ],
   },
 ];
