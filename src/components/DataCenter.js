@@ -94,21 +94,25 @@ const dataCenterDetails = {
       title: "Fixed Data Centers",
       description:
         "A fixed data center is a dedicated facility designed to house IT infrastructure and provide centralized data storage and management. Fixed data centers are typically used by businesses and organizations that require high levels of data security and reliability, such as financial institutions, government agencies, and healthcare providers. Fixed data centers are designed to provide a stable and secure environment for IT equipment, including servers, storage devices, networking equipment, and cooling and power systems. These facilities often have redundant systems to ensure that data and applications remain available in case of a power outage or equipment failure. Fixed data centers can be either owned and operated by the organization or leased from a third-party provider. Leasing a fixed data center can be a cost-effective solution for smaller businesses that do not have the resources to build and maintain their own facility. Fixed data centers provide several benefits, including improved security, reliability, and performance for critical IT infrastructure. They also offer centralized management and monitoring, making it easier for organizations to control and maintain their IT systems. Additionally, fixed data centers can help organizations meet regulatory requirements for data storage and management. Overall, fixed data centers are an essential component of modern IT infrastructure, providing organizations with the necessary tools and resources to manage and protect their valuable data.",
+      images: ["/datacenter1.jpeg", "/datacenter2.jpeg", "/datacenter3.jpeg"],
     },
     {
       title: "Micro Data Centers",
       description:
         "A micro data center is a compact, self-contained IT infrastructure designed to provide localized data processing and storage capabilities. Micro data centers are typically used by businesses and organizations that require high-performance computing and storage capabilities in remote or edge locations, such as manufacturing plants, retail stores, and remote offices. Unlike traditional data centers, which are often large, centralized facilities, micro data centers are designed to be small and modular, allowing for easy deployment and scalability. They typically consist of a compact enclosure or rack that houses servers, storage devices, networking equipment, and cooling and power systems. Micro data centers offer several benefits, including improved performance and reduced latency for critical applications, as well as improved data security and privacy. Because they are located close to the edge, micro data centers can process and store data locally, reducing the need for data to be transmitted to a centralized facility. Micro data centers can also help organizations reduce costs by reducing the need for expensive network infrastructure and reducing the amount of data that needs to be transmitted over long distances. Additionally, micro data centers can help organizations comply with data privacy regulations by ensuring that data is stored and processed locally. Overall, micro data centers are an essential component of modern IT infrastructure, providing organizations with the necessary tools and resources to manage and process data in remote and edge locations.",
+      images: ["/datacenter4.jpeg", "/datacenter7.jpeg", "/datacenter6.jpeg"],
     },
     {
       title: "Modular Data Centers",
       description:
         "A modular data center is a pre-engineered, self-contained IT infrastructure designed for rapid deployment, scalability, and high efficiency. These data centers consist of pre-fabricated modules that house essential components such as servers, networking equipment, power, cooling, and security systems. They are widely used by enterprises, cloud service providers, and organizations needing flexible and cost-effective data center solutions. Unlike traditional brick-and-mortar data centers, modular data centers are designed to be highly scalable and portable, allowing organizations to expand their IT capacity quickly and efficiently. Each module functions as an independent unit, meaning businesses can add or remove modules based on demand without disrupting existing operations. This modular approach significantly reduces deployment time, allowing businesses to set up a data center in weeks instead of months or years. Modular data centers offer several advantages, including faster deployment, lower energy consumption, and improved cooling efficiency due to their compact and optimized designs. They are also cost-effective, as organizations can invest in only the capacity they need, avoiding the high upfront costs of building traditional data centers. Additionally, modular data centers are designed with advanced security and redundancy features, ensuring high availability and disaster recovery capabilities. Another key benefit of modular data centers is their ability to be deployed in remote or harsh environments, making them ideal for industries such as military, mining, oil & gas, and telecommunications. Their self-contained nature also improves energy efficiency by utilizing advanced airflow management and liquid cooling technologies. Overall, modular data centers represent the future of IT infrastructure, offering organizations a scalable, efficient, and rapidly deployable solution to meet their growing computing and storage needs.",
+      images: ["/datacenter11.jpeg", "/datacenter9.jpeg", "/datacenter10.jpeg"],
     },
     {
       title: "Mobile Data Centers (Container)",
       description:
         "A mobile data center, also known as a data center container, is a self-contained, portable IT infrastructure designed to provide computing and storage capabilities in remote or temporary locations. Mobile data centers are typically housed in shipping containers that can be easily transported by truck, train, or ship. Mobile data centers offer several benefits over traditional data centers, including easy deployment and scalability, as well as the ability to quickly respond to changing business needs. Because they are self-contained, mobile data centers can be easily transported to remote or temporary locations, providing computing and storage capabilities where they are needed most. Mobile data centers are also designed to be highly efficient, with optimized cooling and power systems that can operate in a wide range of temperatures and environmental conditions. They can also be configured with redundant systems to ensure high availability and reliability. Mobile data centers are used in a wide range of industries, including healthcare, finance, and government, as well as in disaster response and military applications. They can be customized to meet specific business needs and can be easily upgraded or expanded as business needs change. Overall, mobile data centers are an essential component of modern IT infrastructure, providing organizations with the necessary tools and resources to manage and process data in remote or temporary locations. They offer flexibility, scalability, and reliability, making them an ideal solution for organizations that need to operate in dynamic or challenging environments.",
+      images: ["/datacenter13.gif", "/datacenter14.jpg", "/datacenter16.jpg"],
     },
   ],
 };
@@ -246,6 +250,39 @@ const DataCenter = () => {
                 <p className="text-lg text-gray-700 leading-relaxed">
                   {info.description}
                 </p>
+
+                {/* Image Carousel */}
+                {info.images && info.images.length > 0 && (
+                  <div className="mt-6">
+                    <Swiper
+                      modules={[Navigation, Pagination, Autoplay]}
+                      navigation
+                      pagination={{ clickable: true }}
+                      autoplay={{ delay: 4000, disableOnInteraction: false }}
+                      loop={true}
+                      speed={600}
+                      grabCursor={true}
+                      breakpoints={{
+                        320: { slidesPerView: 1, spaceBetween: 5 },
+                        640: { slidesPerView: 2, spaceBetween: 10 },
+                        1024: { slidesPerView: 3, spaceBetween: 15 },
+                      }}
+                      className="w-full rounded-lg ">
+                      {info.images.map((image, imgIndex) => (
+                        <SwiperSlide
+                          key={imgIndex}
+                          className="will-change-transform">
+                          <img
+                            src={image}
+                            alt={`${info.title} - Image ${imgIndex + 1}`}
+                            className="w-full h-auto max-h-80 object-cover rounded-lg cursor-pointer"
+                            onClick={() => setSelectedImage(image)}
+                          />
+                        </SwiperSlide>
+                      ))}
+                    </Swiper>
+                  </div>
+                )}
               </div>
             ))}
           </div>
