@@ -2,13 +2,42 @@ import React, { useState, useEffect, useRef } from "react";
 import { FaPlay, FaPause } from "react-icons/fa";
 
 const Landing = () => {
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef(null);
 
   useEffect(() => {
-    // Attempt to autoplay on page load
-    audioRef.current.play().catch(() => setIsPlaying(false));
+    // Try to autoplay
+    const playAudio = () => {
+      audioRef.current
+        .play()
+        .then(() => setIsPlaying(true)) // If autoplay works, set playing state
+        .catch(() => setIsPlaying(false)); // If blocked, user must interact
+    };
+
+    playAudio();
+
+    // Enable playback when user interacts with the page
+    const enableAudio = () => {
+      if (!isPlaying) {
+        audioRef.current.play().catch(() => {});
+        setIsPlaying(true);
+      }
+      document.removeEventListener("click", enableAudio);
+    };
+    document.addEventListener("click", enableAudio);
+
+    return () => {
+      document.removeEventListener("click", enableAudio);
+    };
   }, []);
+
+  // Scroll to Contact Section
+  const scrollToContact = () => {
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <div
@@ -29,7 +58,7 @@ const Landing = () => {
       <div className="absolute inset-0 bg-black opacity-40"></div>
 
       {/* Background Music */}
-      <audio ref={audioRef} src="/music.mp3" loop autoPlay></audio>
+      <audio ref={audioRef} src="/music.mp3" loop></audio>
 
       {/* Centered Content */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
@@ -47,8 +76,10 @@ const Landing = () => {
           solutions.
         </p>
 
-        {/* Work With Us Button */}
-        <button className="mt-8 bg-gradient-to-r from-blue-500 to-teal-500 text-white font-semibold py-3 px-8 rounded-full shadow-lg flex items-center transition-all duration-300 ease-in-out hover:bg-gradient-to-l hover:scale-105 hover:shadow-xl">
+        {/* Work With Us Button - Scrolls to Contact Section */}
+        <button
+          onClick={scrollToContact}
+          className="mt-8 bg-gradient-to-r from-blue-500 to-teal-500 text-white font-semibold py-3 px-8 rounded-full shadow-lg flex items-center transition-all duration-300 ease-in-out hover:bg-gradient-to-l hover:scale-105 hover:shadow-xl">
           Work With Us <span className="ml-2 text-xl">→</span>
         </button>
 
