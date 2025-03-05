@@ -143,14 +143,6 @@ const Partners = () => {
             Our Partners
           </h2>
 
-          {/* Scroll indicator above */}
-          <div className="flex items-center justify-center mb-2">
-            <FaArrowRight className="animate-bounce text-blue-600 mr-2" />
-            <span className="text-sm text-gray-600">
-              Scroll to see more categories
-            </span>
-          </div>
-
           {/* Categories container with scroll buttons */}
           <div className="relative">
             <button
@@ -161,7 +153,7 @@ const Partners = () => {
 
             <div
               ref={categoriesContainerRef}
-              className="w-full overflow-x-auto no-scrollbar mb-2 px-12" // added padding so buttons don't overlap content
+              className="w-full overflow-x-auto no-scrollbar mb-2 px-12"
               data-aos="fade-up"
               data-aos-delay="100">
               <div className="inline-flex space-x-4">
@@ -187,7 +179,7 @@ const Partners = () => {
             </button>
           </div>
 
-          {/* Indicator for mobile placed below (if needed) */}
+          {/* Scroll indicator for mobile view only */}
           <div className="sm:hidden flex items-center justify-center mt-1">
             <FaArrowRight className="animate-bounce text-blue-600 mr-2" />
             <span className="text-sm text-gray-600">
