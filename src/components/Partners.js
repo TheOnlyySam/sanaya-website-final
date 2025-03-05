@@ -13,6 +13,13 @@ const partnersData = [
     ],
   },
   {
+    category: "Fire Alarm Systmes",
+    partners: [
+      { name: "Partner D", logo: "/partners/TEKNIM.png" },
+      { name: "Partner A", logo: "/partners/bosch.png" },
+    ],
+  },
+  {
     category: "Structured Cabling",
     partners: [
       { name: "Partner D", logo: "/partners/Canovate Logo.png" },
