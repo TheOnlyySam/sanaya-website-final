@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { FaArrowRight } from "react-icons/fa";
+import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 
 // Sample partner data – update file names/paths as needed.
 const partnersData = [
@@ -67,6 +67,7 @@ const Partners = () => {
   const [activeTab, setActiveTab] = useState(0);
   const [autoSwitch, setAutoSwitch] = useState(true);
   const logoContainerRef = useRef(null); // Reference for the logo container
+  const categoriesContainerRef = useRef(null); // Reference for the categories container
 
   useEffect(() => {
     if (autoSwitch) {
@@ -84,6 +85,24 @@ const Partners = () => {
     // Reset the logo container scroll to the first logo
     if (logoContainerRef.current) {
       logoContainerRef.current.scrollLeft = 0;
+    }
+  };
+
+  const scrollLeft = () => {
+    if (categoriesContainerRef.current) {
+      categoriesContainerRef.current.scrollBy({
+        left: -150,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const scrollRight = () => {
+    if (categoriesContainerRef.current) {
+      categoriesContainerRef.current.scrollBy({
+        left: 150,
+        behavior: "smooth",
+      });
     }
   };
 
@@ -124,12 +143,28 @@ const Partners = () => {
             Our Partners
           </h2>
 
+          {/* Scroll indicator above */}
+          <div className="flex items-center justify-center mb-2">
+            <FaArrowRight className="animate-bounce text-blue-600 mr-2" />
+            <span className="text-sm text-gray-600">
+              Scroll to see more categories
+            </span>
+          </div>
+
+          {/* Categories container with scroll buttons */}
           <div className="relative">
+            <button
+              onClick={scrollLeft}
+              className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-blue-600 text-white p-2 rounded-full shadow-lg hover:bg-blue-700">
+              <FaArrowLeft />
+            </button>
+
             <div
-              className="flex overflow-x-auto no-scrollbar mb-2"
+              ref={categoriesContainerRef}
+              className="w-full overflow-x-auto no-scrollbar mb-2 px-12" // added padding so buttons don't overlap content
               data-aos="fade-up"
               data-aos-delay="100">
-              <div className="flex flex-nowrap space-x-4">
+              <div className="inline-flex space-x-4">
                 {partnersData.map((item, index) => (
                   <button
                     key={index}
@@ -145,20 +180,26 @@ const Partners = () => {
               </div>
             </div>
 
-            <div className="sm:hidden flex items-center justify-center mt-1">
-              <FaArrowRight className="animate-bounce text-blue-600 mr-2" />
-              <span className="text-sm text-gray-600">
-                Scroll to see more categories
-              </span>
-            </div>
+            <button
+              onClick={scrollRight}
+              className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-blue-600 text-white p-2 rounded-full shadow-lg hover:bg-blue-700">
+              <FaArrowRight />
+            </button>
+          </div>
+
+          {/* Indicator for mobile placed below (if needed) */}
+          <div className="sm:hidden flex items-center justify-center mt-1">
+            <FaArrowRight className="animate-bounce text-blue-600 mr-2" />
+            <span className="text-sm text-gray-600">
+              Scroll to see more categories
+            </span>
           </div>
 
           {/* ✅ FIX: On desktop, ensure first logo is aligned left instead of centered */}
           <div
             ref={logoContainerRef}
             key={activeTab}
-            className="container flex flex-nowrap justify-start items-center 
-              gap-8 fade-in-up mt-8 overflow-x-auto overflow-hidden lg:justify-start"
+            className="container flex flex-nowrap justify-start items-center gap-8 fade-in-up mt-8 overflow-x-auto overflow-hidden lg:justify-start"
             data-aos="fade-up">
             {partnersData[activeTab].partners.map((partner, index) => (
               <a
