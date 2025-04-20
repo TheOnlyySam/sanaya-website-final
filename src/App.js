@@ -8,6 +8,7 @@ import MissionVision from "./components/MissionVision";
 import Partners from "./components/Partners";
 import ServiceDetail from "./components/ServiceDetail"; // Import ServiceDetail component
 import DataCenter from "./components/DataCenter"; // Import DataCenter Component
+import FireAlarmService from "./components/FireAlarmService";
 
 import Contact from "./components/Contact";
 import ScrollToTop from "./components/ScrollToTop"; // Import ScrollToTop component
@@ -73,6 +74,7 @@ function App() {
         <Route path="/services/:serviceId" element={<ServiceDetail />} />
         {/* New Data Center Route */}
         <Route path="/services/data-centers" element={<DataCenter />} />
+        <Route path="/services/fire-alarm-systems" element={<FireAlarmService />} />
       </Routes>
     </Router>
   );

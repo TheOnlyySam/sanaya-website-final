@@ -18,6 +18,12 @@ const professionalServices = [
     link: "/services/data-centers",
   },
   {
+    title: "Fire Alarm Systems",
+    description: "Reliable fire alarm solutions by Teknim, including addressable, conventional, wireless, and monitoring software.",
+    image: "fire-alarm.jpg",
+    link: "/services/fire-alarm-systems"
+  },
+  {
     title: "Networking & Security Solutions",
     description:
       "Through our Networking and security vendors, we provide a wide range of products and services by delivering turnkey solutions, allowing the combination of many platforms' connectivity.",
