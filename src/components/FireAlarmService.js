@@ -80,7 +80,7 @@ const FireAlarmService = () => {
     },
     {
       icon: "📡",
-      title: "Wireless Fire Alarm Systems EN54-25 and EN54-13",
+      title: "Wireless Fire Alarm Systems",
       desc:
         "Deploy fully wireless or hybrid systems using IEEE 802.15.4 low‑power mesh—up to 31 devices per coordinator, layered ACK for guaranteed delivery, and up to 2.5km range outdoors.",
       url: "/docs/Catalogue_Wireless_Fire_Alarm_System.pdf",

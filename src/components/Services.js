@@ -24,6 +24,13 @@ const professionalServices = [
     link: "/services/fire-alarm-systems"
   },
   {
+    title: "Software Engineering",
+    description:
+      "Our software engineering division builds scalable web and mobile applications tailored to your business needs. From frontend design to robust backend systems, we leverage modern technologies and agile practices to ensure reliability, performance, and user-centric design.",
+    image: "deployment.jpg", // Make sure this image exists in your public/assets/images folder
+    link: "/services/software-engineering",
+  },
+  {
     title: "Networking & Security Solutions",
     description:
       "Through our Networking and security vendors, we provide a wide range of products and services by delivering turnkey solutions, allowing the combination of many platforms' connectivity.",

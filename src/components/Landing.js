@@ -211,13 +211,7 @@ const Landing = () => {
           </button>
         </div>
 
-        {/* Optional Analytics Graphic */}
-        <div className="absolute bottom-4 right-4 bg-teal-900 bg-opacity-75 p-2 sm:p-4 rounded-lg shadow-md">
-          <p className="text-teal-300 text-xs sm:text-sm uppercase tracking-widest">
-            Analytics
-          </p>
-          <p className="text-sm sm:text-lg font-bold text-white">100.00 %</p>
-        </div>
+
 
         {/* Optional Floating Dots/Particles */}
         <div className="absolute inset-0 pointer-events-none">
