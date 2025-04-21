@@ -64,31 +64,31 @@ const FireAlarmService = () => {
   const features = [
     {
       icon: "📟",
-      title: "Intelligent Addressable Systems",
+      title: "Intelligent Addressable Fire Alarm System",
       desc:
         "Leverage FLASHLINK™ protocol for uninterrupted, peer-to-peer communication across loops—supports up to 508 devices per panel, full network scalability, and real-time mobile/cloud monitoring.",
       url: "/docs/Catalogue_Addressable_Fire_Alarm.pdf",
-      img: "/assets/fire-alarm.jpg",
+      img: "/assets/11.png",
     },
     {
       icon: "🚨",
-      title: "Conventional Panel Solutions",
+      title: "Conventional Fire Alarm System",
       desc:
         "4- or 8-zone capacity, separate fire & fault indicators, built-in Intelligent walk‑through test mode, and smart battery management for extended uptime.",
       url: "/docs/Catalogue_Conventional_Fire_Alarm.pdf",
-      img: "/assets/conventional.jpg",
+      img: "/assets/conve.png",
     },
     {
       icon: "📡",
-      title: "Wireless TLPWAN Architecture",
+      title: "Wireless Fire Alarm Systems EN54-25 and EN54-13",
       desc:
         "Deploy fully wireless or hybrid systems using IEEE 802.15.4 low‑power mesh—up to 31 devices per coordinator, layered ACK for guaranteed delivery, and up to 2.5km range outdoors.",
       url: "/docs/Catalogue_Wireless_Fire_Alarm_System.pdf",
-      img: "/assets/wireless.png",
+      img: "/assets/fire-alarm.jpg",
     },
     {
       icon: "💻",
-      title: "Mosaic-2000 Monitoring Software",
+      title: "Mosaic-2000 Teknim Addressable Fire Alarm Monitoring Software",
       desc:
         "Centralized web dashboard: multi-floor/map views, instant pop-up alarms, remote reset/silence/evacuate commands, PDF export, and third‑party API integration.",
       url: "/docs/Monitoring_Software.pdf",
@@ -272,50 +272,7 @@ const FireAlarmService = () => {
         </div>
       </section>
 
-      {/* Contact Form */}
-      <section className="container mx-auto py-24 px-6 lg:px-32" id="contact">
-        <h2 className="text-4xl font-bold text-center mb-12" data-aos="fade-up">
-          Get in Touch
-        </h2>
-        <form
-          action="/api/contact"
-          method="POST"
-          className="max-w-2xl mx-auto bg-white p-8 rounded-2xl shadow-lg"
-          data-aos="fade-up"
-        >
-          <div className="grid gap-6 grid-cols-1 md:grid-cols-2 mb-6">
-            <input
-              type="text"
-              name="name"
-              required
-              placeholder="Your Name"
-              className="w-full border border-gray-300 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-            />
-            <input
-              type="email"
-              name="email"
-              required
-              placeholder="Your Email"
-              className="w-full border border-gray-300 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-            />
-          </div>
-          <div className="mb-6">
-            <textarea
-              name="message"
-              rows="5"
-              required
-              placeholder="Your Message"
-              className="w-full border border-gray-300 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none"
-            />
-          </div>
-          <button
-            type="submit"
-            className="w-full bg-blue-600 text-white py-3 rounded-full hover:bg-teal-500 transition-colors duration-300"
-          >
-            Send Message
-          </button>
-        </form>
-      </section>
+
 
       {/* Call to Action Footer */}
       <footer className="bg-blue-600 py-16 text-center text-white" id="footer">

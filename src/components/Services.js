@@ -19,7 +19,7 @@ const professionalServices = [
   },
   {
     title: "Fire Alarm Systems",
-    description: "Reliable fire alarm solutions by Teknim, including addressable, conventional, wireless, and monitoring software.",
+    description: "Sanaya provides reliable fire alarm solutions powered by Teknim and Bosch, offering a comprehensive range of systems including addressable, conventional, wireless, and integrated monitoring software. Engineered for precision and rapid response, these systems ensure early detection and effective alerts in diverse environments, from residential buildings to large-scale commercial facilities. With user-friendly interfaces, advanced diagnostics, and seamless integration with building management systems, Sanaya’s fire alarm solutions prioritize safety, compliance, and operational efficiency for businesses and institutions of all sizes.",
     image: "fire-alarm.jpg",
     link: "/services/fire-alarm-systems"
   },
