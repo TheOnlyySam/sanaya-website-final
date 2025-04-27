@@ -140,54 +140,50 @@ const FireAlarmService = () => {
           className="absolute inset-0 w-full h-full object-cover transform scale-105"
         />
         <div className="absolute inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center px-4">
-          <h1
-            className="text-white text-5xl md:text-6xl font-extrabold mb-4"
-            data-aos="fade-down"
-          >
+          <h1 className="text-white text-5xl md:text-6xl font-extrabold mb-4" data-aos="fade-down">
             Comprehensive Fire Alarm Systems
           </h1>
-          <p
-            className="text-gray-200 max-w-2xl text-center text-lg md:text-xl"
-            data-aos="fade-up"
-            data-aos-delay="200"
-          >
-            Under the trusted Teknim brand: addressable, conventional, wireless,
-            and fully integrated monitoring software for any facility size.
+          <p className="text-gray-200 max-w-2xl text-center text-lg md:text-xl" data-aos="fade-up" data-aos-delay="200">
+            Under the trusted Teknim brand: addressable, conventional, wireless, and fully integrated monitoring software for any facility size.
           </p>
         </div>
       </section>
 
       {/* Solutions Grid */}
-      <section
-        className="container mx-auto py-24 px-6 lg:px-32"
-        id="solutions"
-      >
-        <h2
-          className="text-4xl font-bold text-center mb-16"
-          data-aos="fade-up"
-        >
+      <section className="container mx-auto py-24 px-6 lg:px-32" id="solutions">
+        <h2 className="text-4xl font-bold text-center mb-16" data-aos="fade-up">
           Our Key Solutions
         </h2>
         <div className="grid gap-12 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
           {features.map((f, i) => (
-            <button
+            <div
               key={i}
-              onClick={() => {
-                setModalUrl(f.url);
-                setModalTitle(f.title);
-              }}
-              className="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 focus:outline-none"
+              className="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300"
               data-aos="fade-up"
               data-aos-delay={i * 150}
             >
-              <div className="text-6xl mb-4 text-blue-600 group-hover:text-teal-500">
-                {f.icon}
+              <div className="text-6xl mb-4 text-blue-600 group-hover:text-teal-500">{f.icon}</div>
+              <h3 className="text-2xl font-semibold mb-3 group-hover:text-teal-600">{f.title}</h3>
+              <p className="text-gray-600 leading-relaxed mb-4">{f.desc}</p>
+              <div className="flex justify-center gap-3 mt-4">
+                <button
+                  onClick={() => {
+                    setModalUrl(f.url);
+                    setModalTitle(f.title);
+                  }}
+                  className="bg-blue-600 text-white py-1.5 px-4 rounded-full text-sm hover:bg-teal-500"
+                >
+                  View Catalog
+                </button>
+                <a
+                  href={f.url}
+                  download
+                  className="bg-gray-200 text-gray-800 py-1.5 px-4 rounded-full text-sm hover:bg-gray-300"
+                >
+                  Download
+                </a>
               </div>
-              <h3 className="text-2xl font-semibold mb-3 group-hover:text-teal-600">
-                {f.title}
-              </h3>
-              <p className="text-gray-600 leading-relaxed">{f.desc}</p>
-            </button>
+            </div>
           ))}
         </div>
       </section>
@@ -197,29 +193,33 @@ const FireAlarmService = () => {
         {features.map((f, idx) => (
           <div
             key={idx}
-            className={`flex flex-col lg:flex-row items-center mb-24 ${
-              idx % 2 === 1 ? "lg:flex-row-reverse" : ""
-            }`}
+            className={`flex flex-col lg:flex-row items-center mb-24 ${idx % 2 === 1 ? "lg:flex-row-reverse" : ""}`}
           >
             <div className="lg:w-1/2 p-6" data-aos="fade-right">
               <h3 className="text-3xl font-bold mb-4">{f.title}</h3>
               <p className="text-gray-700 mb-6 leading-relaxed">{f.desc}</p>
-              <button
-                className="bg-blue-600 text-white py-2 px-6 rounded-full hover:bg-teal-500 transition-colors duration-300"
-                onClick={() => {
-                  setModalUrl(f.url);
-                  setModalTitle(f.title);
-                }}
-              >
-                View Catalog
-              </button>
+              <div className="flex gap-4">
+                <button
+                  className="bg-blue-600 text-white py-2 px-6 rounded-full hover:bg-teal-500 transition-colors duration-300"
+                  onClick={() => {
+                    setModalUrl(f.url);
+                    setModalTitle(f.title);
+                  }}
+                >
+                  View Catalog
+                </button>
+                <a
+                  href={f.url}
+                  download
+                  className="bg-gray-200 text-gray-800 py-2 px-6 rounded-full hover:bg-gray-300 transition-colors duration-300"
+                >
+                  Download
+                </a>
+              </div>
             </div>
             <div className="lg:w-1/2 p-6" data-aos="fade-left">
               <img
-                src={
-                  f.img ||
-                  `/assets/${f.title.toLowerCase().replace(/\s+/g, "-")}.jpg`
-                }
+                src={f.img || `/assets/${f.title.toLowerCase().replace(/\s+/g, "-")}.jpg`}
                 alt={f.title}
                 className="rounded-2xl shadow-lg w-full h-auto object-cover"
               />
@@ -249,10 +249,7 @@ const FireAlarmService = () => {
       </section>
 
       {/* Testimonials */}
-      <section
-        className="bg-gradient-to-r from-teal-50 to-white py-24 px-6 lg:px-32"
-        id="testimonials"
-      >
+      <section className="bg-gradient-to-r from-teal-50 to-white py-24 px-6 lg:px-32" id="testimonials">
         <h2 className="text-4xl font-bold text-center mb-16" data-aos="fade-up">
           What Our Clients Say
         </h2>
@@ -272,16 +269,13 @@ const FireAlarmService = () => {
         </div>
       </section>
 
-
-
       {/* Call to Action Footer */}
       <footer className="bg-blue-600 py-16 text-center text-white" id="footer">
         <h3 className="text-3xl font-bold mb-4" data-aos="zoom-in">
           Secure Your Facility Today
         </h3>
         <p className="mb-6" data-aos="zoom-in" data-aos-delay="150">
-          Ready to discuss custom fire alarm solutions? Reach out now and let’s
-          start planning.
+          Ready to discuss custom fire alarm solutions? Reach out now and let’s start planning.
         </p>
         <button
           onClick={() => navigate("/", { state: { scrollTo: "hero" } })}
