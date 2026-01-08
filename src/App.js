@@ -11,6 +11,7 @@ import DataCenter from "./components/DataCenter";
 import FireAlarmService from "./components/FireAlarmService";
 import SoftwareEngineering from "./components/SoftwareEngineering";
 import Contact from "./components/Contact";
+import PaymentTest from "./components/PaymentTest";
 import ScrollToTop from "./components/ScrollToTop";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -65,7 +66,8 @@ function App() {
         <Route path="/services/data-centers" element={<DataCenter />} />
         <Route path="/services/fire-alarm-systems" element={<FireAlarmService />} />
         <Route path="/services/software-engineering" element={<SoftwareEngineering />} />
-      </Routes>
+        <Route path="/test-payment" element={<PaymentTest />} />
+        </Routes>
 
       {/* 🌐 Global WhatsApp Button */}
       <a

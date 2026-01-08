@@ -49,7 +49,8 @@ const Navbar = () => {
         scrolled || isOpen
           ? "bg-white text-gray-900 shadow-md"
           : "bg-transparent text-white"
-      }`}>
+      }`}
+    >
       <div className="container mx-auto flex justify-between items-center px-4 md:px-6 lg:px-8 py-3">
         <img
           src={scrolled || isOpen ? "/logo2.png" : "/logo1.png"}
@@ -69,24 +70,31 @@ const Navbar = () => {
             <li
               key={item.id}
               className="cursor-pointer hover:text-blue-500"
-              onClick={() => scrollToSection(item.id)}>
+              onClick={() => scrollToSection(item.id)}
+            >
               {item.label}
             </li>
           ))}
+
         </ul>
 
-        <div className="hidden lg:flex space-x-4">
-          <button
-            onClick={() => downloadFile("Sanaya Company Profile Digital.pdf")}
-            className="px-5 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
-            Download Profile
-          </button>
-          <button
-            onClick={() => downloadFile("Sanaya Reference List.pdf")}
-            className="px-5 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600">
-            Download References
-          </button>
-        </div>
+        {/*
+<div className="hidden lg:flex space-x-4">
+  <button
+    onClick={() => downloadFile("Sanaya Company Profile Digital.pdf")}
+    className="px-5 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+  >
+    Download Profile
+  </button>
+  <button
+    onClick={() => downloadFile("Sanaya Reference List.pdf")}
+    className="px-5 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600"
+  >
+    Download References
+  </button>
+</div>
+*/}
+
 
         <button className="lg:hidden" onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
@@ -106,26 +114,31 @@ const Navbar = () => {
               <li
                 key={item.id}
                 className="cursor-pointer hover:text-blue-500"
-                onClick={() => scrollToSection(item.id)}>
+                onClick={() => scrollToSection(item.id)}
+              >
                 {item.label}
               </li>
             ))}
-            <li className="mt-4">
-              <button
-                onClick={() =>
-                  downloadFile("Sanaya Company Profile Digital.pdf")
-                }
-                className="block w-full text-center px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
-                Download Profile
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={() => downloadFile("Sanaya Reference List.pdf")}
-                className="block w-full text-center px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600">
-                Download References
-              </button>
-            </li>
+
+           {/*
+<li className="mt-4">
+  <button
+    onClick={() => downloadFile("Sanaya Company Profile Digital.pdf")}
+    className="block w-full text-center px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+  >
+    Download Profile
+  </button>
+</li>
+<li>
+  <button
+    onClick={() => downloadFile("Sanaya Reference List.pdf")}
+    className="block w-full text-center px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600"
+  >
+    Download References
+  </button>
+</li>
+*/}
+
           </ul>
         </div>
       )}
