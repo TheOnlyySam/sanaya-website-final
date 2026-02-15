@@ -47,7 +47,7 @@ const teamMembers = [
     id: "Baqer Haider",
     name: "Baqer Haider",
     role: "Network Engineer",
-    image: "/baqer.jpeg",
+    image: "/baqer.jpg",
     description:
       "Builds and maintains secure, high-availability network environments for enterprise and data center operations.",
     quote:
