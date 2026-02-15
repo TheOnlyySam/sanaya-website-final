@@ -55,14 +55,14 @@ const Navbar = () => {
     scrollToSection(item.id);
   };
 
-  const downloadFile = (fileName) => {
-    const link = document.createElement("a");
-    link.href = `/${fileName}`;
-    link.setAttribute("download", fileName);
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
+ // const downloadFile = (fileName) => {
+ //   const link = document.createElement("a");
+   // link.href = `/${fileName}`;
+    //link.setAttribute("download", fileName);
+    //document.body.appendChild(link);
+    //link.click();
+    //document.body.removeChild(link);
+  //}; 
 
   return (
     <nav
