@@ -7,6 +7,8 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+  const isHomePage = location.pathname === "/";
+  const useLightNavbar = isHomePage && !scrolled && !isOpen;
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -34,6 +36,25 @@ const Navbar = () => {
     }
   };
 
+  const menuItems = [
+    { label: "About Us", id: "about" },
+    { label: "Partners", id: "partners" },
+    { label: "Solutions", id: "services" },
+    { label: "Services", id: "ConsultingServices" },
+    { label: "Our Team", path: "/our-team" },
+    { label: "Contact Us", id: "contact" },
+  ];
+
+  const handleNavItemClick = (item) => {
+    if (item.path) {
+      setIsOpen(false);
+      navigate(item.path);
+      return;
+    }
+
+    scrollToSection(item.id);
+  };
+
   const downloadFile = (fileName) => {
     const link = document.createElement("a");
     link.href = `/${fileName}`;
@@ -46,31 +67,23 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 w-full z-50 transition-colors duration-75 ${
-        scrolled || isOpen
-          ? "bg-white text-gray-900 shadow-md"
-          : "bg-transparent text-white"
+        useLightNavbar ? "bg-transparent text-white" : "bg-white text-gray-900 shadow-md"
       }`}
     >
       <div className="container mx-auto flex justify-between items-center px-4 md:px-6 lg:px-8 py-3">
         <img
-          src={scrolled || isOpen ? "/logo2.png" : "/logo1.png"}
+          src={useLightNavbar ? "/logo1.png" : "/logo2.png"}
           alt="Logo"
           className="h-12 sm:h-14 lg:h-16 cursor-pointer"
           onClick={() => scrollToSection("landing")}
         />
 
         <ul className="hidden lg:flex space-x-10 text-base font-medium">
-          {[
-            { label: "About Us", id: "about" },
-            { label: "Partners", id: "partners" },
-            { label: "Solutions", id: "services" },
-            { label: "Services", id: "ConsultingServices" },
-            { label: "Contact Us", id: "contact" },
-          ].map((item) => (
+          {menuItems.map((item) => (
             <li
-              key={item.id}
+              key={item.path || item.id}
               className="cursor-pointer hover:text-blue-500"
-              onClick={() => scrollToSection(item.id)}
+              onClick={() => handleNavItemClick(item)}
             >
               {item.label}
             </li>
@@ -104,17 +117,11 @@ const Navbar = () => {
       {isOpen && (
         <div className="lg:hidden bg-white text-gray-900 shadow-md p-4">
           <ul className="flex flex-col space-y-4 text-lg font-medium text-center">
-            {[
-              { label: "About Us", id: "about" },
-              { label: "Partners", id: "partners" },
-              { label: "Solutions", id: "services" },
-              { label: "Services", id: "ConsultingServices" },
-              { label: "Contact Us", id: "contact" },
-            ].map((item) => (
+            {menuItems.map((item) => (
               <li
-                key={item.id}
+                key={item.path || item.id}
                 className="cursor-pointer hover:text-blue-500"
-                onClick={() => scrollToSection(item.id)}
+                onClick={() => handleNavItemClick(item)}
               >
                 {item.label}
               </li>

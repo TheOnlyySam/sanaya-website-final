@@ -16,6 +16,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import ConsultingServices from "./components/ConsultingServices";
+import OurTeam from "./components/OurTeam";
 
 function App() {
   useEffect(() => {
@@ -66,6 +67,7 @@ function App() {
         <Route path="/services/data-centers" element={<DataCenter />} />
         <Route path="/services/fire-alarm-systems" element={<FireAlarmService />} />
         <Route path="/services/software-engineering" element={<SoftwareEngineering />} />
+        <Route path="/our-team" element={<OurTeam />} />
         <Route path="/test-payment" element={<PaymentTest />} />
         </Routes>
 
