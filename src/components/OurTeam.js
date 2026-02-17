@@ -41,7 +41,7 @@ const teamMembers = [
     description:
       "Lead Software Engineer, Software Project Manager (SPM), R&D, Certified Odoo v19 Functional Consultant | BSc Computer Engineering",
     quote:
-      "It's doable, but is it within your scope???",
+      "It's doable, but is it within your scope????",
   },
   {
     id: "Baqer Haider",
