@@ -41,11 +41,18 @@ const Navbar = () => {
     { label: "Partners", id: "partners" },
     { label: "Solutions", id: "services" },
     { label: "Services", id: "ConsultingServices" },
+    { label: "Shop", url: "https://sanayatechs.odoo.com/shop" },
     { label: "Our Team", path: "/our-team" },
     { label: "Contact Us", id: "contact" },
   ];
 
   const handleNavItemClick = (item) => {
+    if (item.url) {
+      setIsOpen(false);
+      window.open(item.url, "_blank", "noopener,noreferrer");
+      return;
+    }
+
     if (item.path) {
       setIsOpen(false);
       navigate(item.path);
@@ -54,15 +61,6 @@ const Navbar = () => {
 
     scrollToSection(item.id);
   };
-
- // const downloadFile = (fileName) => {
- //   const link = document.createElement("a");
-   // link.href = `/${fileName}`;
-    //link.setAttribute("download", fileName);
-    //document.body.appendChild(link);
-    //link.click();
-    //document.body.removeChild(link);
-  //}; 
 
   return (
     <nav
@@ -91,22 +89,15 @@ const Navbar = () => {
 
         </ul>
 
-        {/*
-<div className="hidden lg:flex space-x-4">
-  <button
-    onClick={() => downloadFile("Sanaya Company Profile Digital.pdf")}
-    className="px-5 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
-  >
-    Download Profile
-  </button>
-  <button
-    onClick={() => downloadFile("Sanaya Reference List.pdf")}
-    className="px-5 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600"
-  >
-    Download References
-  </button>
-</div>
-*/}
+        <div className="hidden lg:flex items-center space-x-3">
+          <a
+            href="/sanayatechsnewcompanyprofile.pdf"
+            download
+            className="px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors"
+          >
+            Download Profile
+          </a>
+        </div>
 
 
         <button className="lg:hidden" onClick={() => setIsOpen(!isOpen)}>
@@ -126,25 +117,16 @@ const Navbar = () => {
                 {item.label}
               </li>
             ))}
-
-           {/*
-<li className="mt-4">
-  <button
-    onClick={() => downloadFile("Sanaya Company Profile Digital.pdf")}
-    className="block w-full text-center px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
-  >
-    Download Profile
-  </button>
-</li>
-<li>
-  <button
-    onClick={() => downloadFile("Sanaya Reference List.pdf")}
-    className="block w-full text-center px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600"
-  >
-    Download References
-  </button>
-</li>
-*/}
+            <li className="mt-2">
+              <a
+                href="/sanayatechsnewcompanyprofile.pdf"
+                download
+                className="block w-full text-center px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                Download Profile
+              </a>
+            </li>
 
           </ul>
         </div>
