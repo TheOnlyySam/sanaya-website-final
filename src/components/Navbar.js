@@ -91,7 +91,7 @@ const Navbar = () => {
 
         <div className="hidden lg:flex items-center space-x-3">
           <a
-            href="/sanayatechsnewcompanyprofile.pdf"
+            href="/Sanaya%20Company%20Profile.pdf"
             download
             className="px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors"
           >
@@ -119,7 +119,7 @@ const Navbar = () => {
             ))}
             <li className="mt-2">
               <a
-                href="/sanayatechsnewcompanyprofile.pdf"
+                href="/Sanaya%20Company%20Profile.pdf"
                 download
                 className="block w-full text-center px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors"
                 onClick={() => setIsOpen(false)}
