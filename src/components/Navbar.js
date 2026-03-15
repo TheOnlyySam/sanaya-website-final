@@ -41,7 +41,7 @@ const Navbar = () => {
     { label: "Partners", id: "partners" },
     { label: "Solutions", id: "services" },
     { label: "Services", id: "ConsultingServices" },
-    { label: "Shop", url: "https://sanayatechs.odoo.com/shop" },
+    { label: "Products", url: "https://sanayatechs.odoo.com/shop" },
     { label: "Our Team", path: "/our-team" },
     { label: "Contact Us", id: "contact" },
   ];
